@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+    <title>Farmalium</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/queries.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	  <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		<header class="clearfix-bar clearfix-fixed-top">
+			  <div class="logo col-md-4" class="brand">
+    	      	<img src="img/logo-farmalium.png"  alt="Logo Farmalium" width="223" height="68"/>
+	      	  </div>
+		    <nav class="clearfix">
+            <ul class="clearfix">
+                <li><a href="index.html" class="active">Buscador</a></li>
+                <li><a href="resultado.html">Resultado</a></li>
+                <li><a href="#">Oferta del d&iacute;a</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">¿C&oacute;mo lo hacemos?</a></li>
+                <li><a href="#" class="last">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="pullcontainer">
+        <a href="#" id="pull"><i class="fa fa-bars fa-2x"></i></a>
+        </div>     
+		</header>
+	 
+   <!-- Home section ================================================== -->
+
+
+    <section id="home" class="parallax">
+      <div class="bg-parallax"></div><!-- End .bg-parallax -->
+      <div class="overlay"></div><!-- End .pattern -->
+     
+
+		
+		<div id="home-content">
+        <div class="container">	
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+				  	<p class="tittle-text">Encuentra los mejores medicamentos, a los mejores precios.</p>
+				  	<div class="line-divider-2"></div>
+
+
+
+
+                  <form class="searchbox" action="/sign?consulta={{ consulta }}" method="get">
+					 <p class="search-title">Ingresa el nombre de tu medicamento</p>
+				  	 <div class="button-center">
+					   <input id="search" type="text" placeholder="escribe aquí" value="{{ consulta }}">
+					   <input id="submit" type="submit" class="search-btn" >
+				  	 </div>
+				  </form>
+
+
+				 
+				  <div class="transparent-bar"></div>
+				</div>
+				
+              </div><!-- End .row -->
+            </div><!-- End .container -->
+		 </div><!-- End .home-content -->
+		
+    </section><!-- End #home -->
+
+	  
+    <!-- End Home section ================================================== -->
+	  
+
+
+    <div class="container">
+    <div class="arrow"></div>
+    </div>
+	  
+	  
+	  
+    <div class="container carousel">
+      <div class="row">
+
+        <div class="col-md-3">
+        <div class="ca-hover">
+          <div class="carousel-img">
+            <img src="img/noticias/laboratorio.jpg" alt="Carousel Img">
+          </div>
+          <div class="carousel-avatar av1">
+          </div>
+          <div class="carousel-content">
+            <h3>Incautan más de 300 tipos de medicamentos vencidos y reempacados en Cali</h3>
+            <p>Las autoridades recomendaron llevar los farmacéuticos vencidos hasta centros asistenciales, donde los recopilan para su posterior destrucción</p>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-3">
+        <div class="ca-hover">
+          <div class="carousel-img">
+            <img src="img/noticias/pediatria.jpg" alt="Carousel Img">
+          </div>
+          <div class="carousel-avatar av1">
+          </div>
+          <div class="carousel-content">
+            <h3>Piden medicamentos para ni&ntilde;os con VIH</h3>
+            <p>En la XV Conferencia Internacional sobre el Sida, que termina hoy en Bangkok (Tailandia), la organización mundial Médicos Sin Fronteras hizo un llamado al mundo para que obligue a las empresas farmacéuticas a producir medicamentos en presentaciones pediátricas..</p>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-3">
+        <div class="ca-hover">
+          <div class="carousel-img">
+            <img src="img/noticias/colesterol.jpg" alt="Carousel Img">
+          </div>
+          <div class="carousel-avatar av1">
+          </div>
+          <div class="carousel-content">
+            <h3>Desmontando la hipertensión: los médicos no saben cómo frenar la “epidemia silenciosa”</h3>
+            <p>La historia del tratamiento de la hipertensión es la de un tira y afloja entre médicos, investigadores e industria farmacéutica.</p>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-3">
+        <div class="ca-hover">
+          <div class="carousel-img">
+            <img src="img/noticias/alimentacion.jpg" alt="Carousel Img">
+          </div>
+          <div class="carousel-avatar av1">
+          </div>
+          <div class="carousel-content">
+            <h3>Guía dietética de <br>EE. UU. fija nuevas pautas alimenticias</h3>
+            <p>El agregado de azúcar en los alimentos debe representar menos del 10 por ciento de las calorías diarias, según una pauta dietética publicada hoy por el gobierno de Estados Unidos, que por primera vez fijó límites específicos en el consumo de dulces.</p>
+          </div>
+        </div>
+        </div>
+		  
+	</div>
+	</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="controls">
+        </div>
+      </div>
+    </div>
+	  
+	 
+    <div class="quote-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="quote-slideshow">
+              <figure class="show"><h2>Contamos con m&aacute;s de 20.000 productos registrados en nuestra base de datos y seguimos creciendo todos los d&iacute;as para facilitar y optimizar la compra de tus medicamentos.</h2>
+              </figure>
+              <figure><h2>Farmalium compara los precios de tu medicamento entre varios droguer&iacute;as on-line para ofrecerte la mejor opci&oacute;n al mejor precio.</h2>
+              </figure>
+            </div>
+            </div>
+            <span class="quote-prev circle"><i class="fa fa-angle-left fa-2x"></i></span>
+            <span class="quote-next circle"><i class="fa fa-angle-right fa-2x"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow"></div>
+		  
+    <footer>
+        <div class="container">
+        	<div class="row">
+        		<div class="span3 footer-text">
+        		    <a>Farmalium</a>
+    		    </div>
+        		<div class="span3 footer-text">
+        		    &copy;2016, Todos los derechos reservados
+    		    </div>
+        		<div class="span3">
+    		    </div>
+        		<div class="span3">
+        		    <h3>·</h3>
+    		    </div>
+        	</div>
+        </div>
+    </footer>		  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/unslider.min.js"></script>
+  </body>
+</html>
