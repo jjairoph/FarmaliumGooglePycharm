@@ -60,10 +60,10 @@
 
 
 
-                  <form class="searchbox" action="/sign?consulta={{ consulta }}" method="get">
+                  <form class="searchbox" action="/consulta?search={{ consulta }}" method="get">
 					 <p class="search-title">Ingresa el nombre de tu medicamento</p>
 				  	 <div class="button-center">
-					   <input id="search" type="text" placeholder="escribe aquí" value="{{ consulta }}">
+					   <input id="search" name="med" type="text" placeholder="escribe aquí" value="{{ consulta }}">
 					   <input id="submit" type="submit" class="search-btn" >
 				  	 </div>
 				  </form>
@@ -82,6 +82,16 @@
 	  
     <!-- End Home section ================================================== -->
 	  
+
+      <p>Loop through the list:</p>
+      <ul>
+        {% for n in my_list %}
+        <li>{{n}}</li>
+        {% endfor %}
+      </ul>
+
+
+
 
 
     <div class="container">

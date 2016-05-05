@@ -69,24 +69,57 @@ class MainPage(webapp2.RequestHandler):
 
         template = JINJA_ENVIRONMENT.get_template('/templates/index.html')
         self.response.write(template.render(template_values))
+        #self.response.write('es la principal')
 
 
 class Consulta(webapp2.RequestHandler):
-     def post(self):
+     #def post(self):
+     def get(self):
+         consulta = self.request.GET['med']
          # We set the same parent key on the 'Greeting' to ensure each
          # Greeting is in the same entity group. Queries across the
          # single entity group will be consistent. However, the write
          # rate to a single entity group should be limited to
          # ~1/second.
-         consulta = self.request.POST.items
-         query_params = {'consulta': consulta}
-         self.redirect('/?' + urllib.urlencode(query_params))
+         #consulta = self.request.POST.items
+         #query_params = {'consulta': consulta}
+         #self.redirect('/?' + urllib.urlencode(query_params))
+         #self.response.write('es la consulta')
+
+         if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
+             db = MySQLdb.connect(
+                 unix_socket='/cloudsql/farmalium:us-central1:farmalium'.format(
+                     CLOUDSQL_PROJECT,
+                     CLOUDSQL_INSTANCE),
+                 user='root', passwd="elpdhsqep", db="farmalium_latin1")
+         # When running locally, you can either connect to a local running
+         # MySQL instance, or connect to your Cloud SQL instance over TCP.
+         else:
+             db = MySQLdb.connect(host='localhost', user='root', passwd="farmalium2016", db="farmalium_latin1")
+
+         consulta.replace(" ", "%")
+
+         cursor = db.cursor()
+         query = 'Select distinct a.producto, a.principio_activo From invimacompletaexcel as a inner join (SELECT distinct principio_activo FROM invimacompletaexcel where producto like %s) as b on a.principio_activo = b.principio_activo order by 1'
+         cursor.execute(query, (consulta))
+         my_list = []
+         for r in cursor.fetchmany(30):
+            my_list.append(r)
+         #self.response.write('{}\n'.format(r))
+
+         template_values = {
+             'consulta': consulta,
+             'url_linktext': 'url_linktext',
+             'my_list': my_list
+         }
+         template = JINJA_ENVIRONMENT.get_template('/templates/index.html')
+         self.response.write(template.render(template_values))
+         #self.response.write(template.render(my_list))
          # [END guestbook]
 
 
 # [START app]
-app = webapp2.WSGIApplication([('/', MainPage),    ('/*', Consulta)], debug=True)
-app = webapp2.WSGIApplication([(r'/', HomeHandler),  (r'/products', ProductListHandler), (r'/products/(\d+)', ProductHandler),
-])
+app = webapp2.WSGIApplication([('/', MainPage),    ('/consulta*', Consulta)], debug=True)
+#app = webapp2.WSGIApplication([(r'/', HomeHandler),  (r'/products', ProductListHandler), (r'/products/(\d+)', ProductHandler),])
 
 # [END app]
