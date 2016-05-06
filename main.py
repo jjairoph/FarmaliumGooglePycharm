@@ -19,6 +19,7 @@ import urllib
 import MySQLdb
 import webapp2
 import jinja2
+import logging
 
 CLOUDSQL_PROJECT = 'farmalium'
 CLOUDSQL_INSTANCE = 'farmalium_latin1'
@@ -29,6 +30,27 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
+
+def handle_404(request, response, exception):
+    template_values = {
+        'titulo': 'Pagina no encontrada!!!',
+        'mensaje': 'La pagina no existe',
+        'mensaje1': '404 pagina no existe',
+    }
+    logging.exception(exception)
+    template = JINJA_ENVIRONMENT.get_template('/templates/warning.html')
+    response.write(template.render(template_values))
+    response.set_status(404)
+
+def handle_500(request, response, exception):
+    logging.exception(exception)
+    response.write('A server error occurred!')
+    response.set_status(500)
+
+
+
+
+
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
@@ -100,7 +122,7 @@ class Consulta(webapp2.RequestHandler):
          consulta.replace(" ", "%")
 
          cursor = db.cursor()
-         query = 'Select distinct a.producto, a.principio_activo From invimacompletaexcel as a inner join (SELECT distinct principio_activo FROM invimacompletaexcel where producto like %s) as b on a.principio_activo = b.principio_activo order by 1'
+         query = 'Select distinct a.producto, a.principio_activo From invimacompletaexcel as a inner join (SELECT distinct principio_activo FROM invimacompletaexcel where producto like %s ) as b on a.principio_activo = b.principio_activo order by 1'
          cursor.execute(query, (consulta))
          my_list = []
          for r in cursor.fetchmany(30):
@@ -120,6 +142,9 @@ class Consulta(webapp2.RequestHandler):
 
 # [START app]
 app = webapp2.WSGIApplication([('/', MainPage),    ('/consulta*', Consulta)], debug=True)
+app.error_handlers[404] = handle_404
+app.error_handlers[500] = handle_500
+
 #app = webapp2.WSGIApplication([(r'/', HomeHandler),  (r'/products', ProductListHandler), (r'/products/(\d+)', ProductHandler),])
 
 # [END app]
