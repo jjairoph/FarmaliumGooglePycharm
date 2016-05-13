@@ -44,7 +44,7 @@ def handle_404(request, response, exception):
 
 def handle_500(request, response, exception):
     logging.exception(exception)
-    response.write('A server error occurred!')
+    response.write('A server error occurred!jjjj')
     response.set_status(500)
 
 
@@ -68,7 +68,7 @@ class MainPage(webapp2.RequestHandler):
         # When running locally, you can either connect to a local running
         # MySQL instance, or connect to your Cloud SQL instance over TCP.
         else:
-            db = MySQLdb.connect(host='localhost', user='root', passwd="farmalium2016", db="farmalium_latin1" )
+            db = MySQLdb.connect(host='localhost', user='root', passwd="elpdhsqep", db="farmalium_latin1" )
 
         cursor = db.cursor()
         cursor.execute('select distinct producto from invimacompletaexcel order by 1')
@@ -117,15 +117,17 @@ class Consulta(webapp2.RequestHandler):
          # When running locally, you can either connect to a local running
          # MySQL instance, or connect to your Cloud SQL instance over TCP.
          else:
-             db = MySQLdb.connect(host='localhost', user='root', passwd="farmalium2016", db="farmalium_latin1")
+             db = MySQLdb.connect(host='localhost', user='root', passwd="elpdhsqep", db="farmalium_latin1")
 
          consulta.replace(" ", "%")
+         consulta = '%' + consulta + '%'
 
          cursor = db.cursor()
-         query = 'Select distinct a.producto, a.principio_activo From invimacompletaexcel as a inner join (SELECT distinct principio_activo FROM invimacompletaexcel where producto like %s ) as b on a.principio_activo = b.principio_activo order by 1'
-         cursor.execute(query, (consulta))
+         query = 'Select distinct a.producto, a.descripcion_atc From invimacompletaexcel as a inner join ' \
+                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc and a.estado_cum <> %s order by 1'
+         cursor.execute(query, (consulta, 'Inactivo', ))
          my_list = []
-         for r in cursor.fetchmany(30):
+         for r in cursor.fetchmany(200):
             my_list.append(r)
          #self.response.write('{}\n'.format(r))
 

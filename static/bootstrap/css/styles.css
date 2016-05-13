@@ -312,11 +312,14 @@ ul {
  */
  
 nav ul,
+ul,
+il,
 nav ol {
     list-style: none;
     list-style-image: none;
 }
- 
+
+
 /* ==========================================================================
    Embedded content
    ========================================================================== */
@@ -660,6 +663,7 @@ nav ul li a.active {
     background-position: center;
     position: relative;
 }
+
 .carousel {
     text-align: center;
     margin-top: 40px;
@@ -1116,7 +1120,7 @@ footer h2 {
 	background-color: rgba(15, 25, 28, 0.6);
 	color: white;
 	text-align: center;
-    font: normal 30px 'open sans', arial, helvetica;
+    font: normal 27px 'open sans', arial, helvetica;
 }
 
 /*===================================================================================*/
@@ -1198,6 +1202,93 @@ footer h2 {
 }
 
 
+/*===================================================================================*/
+/*  MENU TIPO LISTA DESPLEGABLE                                                                    */
+/*===================================================================================*/
+
+#menu-list {
+	position: relative;
+	padding: -10px;
+    margin: -20px 0px 0px;
+	background-color: rgba(15, 25, 28, 0.8);
+    border: solid 1px #fff;
+	text-align: center;	
+	float: left;
+    width: 50%;
+	height: 23px;
+    font: bold 15px 'open sans', arial, helvetica;
+}
+		
+.navi > li {
+	margin: -16px auto 0 0;
+}
+			
+.navi li a {
+	color:#fff;
+	text-decoration:none;
+	padding: 2px 2px;
+	display:block;
+}
+			
+.navi li a:hover {
+	background-color: rgba(15, 25, 28);
+}
+			
+.navi li ul {
+	display:none;
+	background-color: rgba(15, 25, 28, 0.8);
+	position:relative;
+	min-width:50%;
+}
+			
+.navi li:hover > ul {
+	display:block;
+}
+			
+.navi li ul li {
+	position:relative;
+}
+			
+.navi li ul li ul {
+	right:-40px;
+	top:30px;
+}
+
+
+/*===================================================================================*/
+/*  RESULTADOS BARRA DE BÚSQUEDA                                                                    */
+/*===================================================================================*/
+
+#result-bar {
+    background-color: rgba(255, 255, 255, 0.90);
+    color: #242a2c;
+	padding: 10px;
+    margin: -150px 0px 0px;
+    border: none;
+    font-weight: 600;
+	text-align: left;
+    width: 100%;
+    font: normal 12px 'open sans', arial, helvetica;
+	position: relative;
+}
+
+.resul-bar-tittle {
+	width: 100%;
+	height: 25px;
+	margin-top: 15px;
+	padding: 3px 0px 0px 0px;
+	color: white;
+	text-align: center;
+	font: normal 14px 'open sans', arial, helvetica;
+    background-color: rgba(66, 76, 89, 0.48);
+}
+
+.resul li {
+	padding: 5px 0 5px 0;
+}
+
+
+
 
 /*===================================================================================*/
 /*  BARRA DE RESULTADOS                                                                    */
@@ -1205,7 +1296,7 @@ footer h2 {
 
 .result-tittle {
 	position: relative;
-    border: solid 2px #44b8ba;
+    border: solid 2px #fff;
     margin: 0px 0px 0px;
     width: 100%;
 	height: 88px;
@@ -1214,11 +1305,11 @@ footer h2 {
 
 .result-0{
 	position: relative;
-    background-color: rgba(88, 97, 101, 0.9);
+	background-color: rgba(15, 25, 28, 0.8);
     margin: 0px 0px 0px;
 	text-transform: uppercase;
 	color: white;
-    border: solid 1px #44b8ba;
+    border: solid 1px #fff;
 	text-align: center;
     width: 100%;
     font: bold 28px 'open sans', arial, helvetica;
@@ -1227,8 +1318,8 @@ footer h2 {
 .result-1{
 	position: relative;
     margin: -20px 0px 0px;
-    background-color: rgba(88, 97, 101, 0.9);
-    border: solid 1px #44b8ba;
+	background-color: rgba(15, 25, 28, 0.8);
+    border: solid 1px #fff;
 	color: white;
 	text-align: center;
     width: 100%;
@@ -1236,9 +1327,10 @@ footer h2 {
 }
 .result-2{
 	position: relative;
+	padding: 0px;
     margin: -20px 0px 0px;
-    background-color: rgba(88, 97, 101, 0.9);
-    border: solid 1px #44b8ba;
+	background-color: rgba(15, 25, 28, 0.8);
+    border: solid 1px #fff;
 	color: white;
 	text-align: center;	
 	float: left;
@@ -1246,11 +1338,23 @@ footer h2 {
     font: bold 15px 'open sans', arial, helvetica;
 }
 
+.result-btn-2{
+	position: relative;
+	background-color: rgba(15, 25, 28, 0.8);
+    margin: 0px 0px 0px;
+	text-transform: uppercase;
+	color: white;
+    border: solid 1px #fff;
+	text-align: center;
+    width: 100%;
+    font: bold 28px 'open sans', arial, helvetica;
+}
+
 .result-3{
 	position: relative;
-    background-color: rgba(88, 97, 101, 0.9);
+	background-color: rgba(15, 25, 28, 0.8);
     margin: -40px 0px 0px;
-    border: solid 1px #44b8ba;
+    border: solid 1px #fff;
 	color: white;
 	text-align: center;
 	float: right;
@@ -1343,14 +1447,27 @@ footer h2 {
 	margin: 55px 0 0 0;
 }
 
-  .price {
-	background-color: #44b8ba;
-	margin: 53px -2px 0 0;
+  .distribuidor-text {
+	position: relative;
+	background-color: rgba(66, 76, 89, 0.78);
+	margin: 40px -2px 0 0;
 	color: white;
 	float: right;
 	text-align: center;  
 	width: 90px;
-	height: 30px;
+	height: 15px;
+    font: normal 10px 'open sans', arial, helvetica;
+}
+
+  .price {
+	position: relative;
+	background-color: #44b8ba;
+	margin: 55px -90px 0 0;
+	color: white;
+	float: right;
+	text-align: center;  
+	width: 90px;
+	height: 28px;
     font: normal 20px 'open sans', arial, helvetica;
 
 }
@@ -1377,43 +1494,39 @@ footer {
 /*  VARIOS                                                                    */
 /*===================================================================================*/
 
-
-.line-divider {
-    height: 60px;
-    width: 3px;
-    background: url(../img/linea-verde.png) no-repeat;
-    background-position:  0px 0px;
-	border-color: transparent;
-	margin: 0 auto;
-}
-
-.line-divider-1 {
-    height: 30px;
-    width: 3px;
-    background: url(../img/linea-verde.png) no-repeat;
-    background-position:  0px 0px;
-	border-color: transparent;
-	margin: 55px auto;
-	position: absolute;
-}
-
-.line-divider-2 {
-    height: 30px;
-    width: 3px;
-    background: url(../img/linea-verde.png) no-repeat;
-    background-position:  0px 0px;
-	border-color: transparent;
-	margin: -30px auto 20px;
-}
-.line-divider-3 {
-    height: 15px;
-    width: 3px;
-    background: url(../img/linea-verde.png) no-repeat;
-    background-position:  0px 0px;
-	border-color: transparent;
-	margin: 0 auto;
-}
 .show {
 	text-align: center;
 }	
 
+.plegable{
+	height:0;
+	overflow:hidden;
+	background-color: rgba(255, 255, 255, 0.90);
+	font: normal 14px 'open sans', arial, helvetica;
+	padding: 0px 7px 0 7px;
+}
+
+.plegable-product {
+	height:0;
+	overflow:hidden;
+}
+
+.section-title {
+    background-color: #44b8ba;
+	border: solid 1px #fff;
+    color: #fff;
+	width: 100%;
+	text-align: center;
+    padding: 2px 2px 2px;
+	font: normal 17px 'open sans', arial, helvetica;
+}
+
+.section-title-product {
+	background-color: rgba(15, 25, 28, 0.8);
+	border: solid 1px #fff;
+    color: #fff;
+	width: 100%;
+	text-align: center;
+    padding: 2px 2px 2px;
+	font: normal 17px 'open sans', arial, helvetica;
+}

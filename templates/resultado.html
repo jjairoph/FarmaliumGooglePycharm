@@ -19,7 +19,9 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="favicon.ico">  
+	</head>
   <body>
 		<header class="clearfix-bar clearfix-fixed-top">
 			  <div class="logo col-md-4" class="brand">
@@ -29,7 +31,7 @@
             <ul class="clearfix">
                 <li><a href="index.html">Buscador</a></li>
                 <li><a href="resultado.html" class="active">Resultado</a></li>
-                <li><a href="#">Oferta del d&iacute;a</a></li>
+                <li><a href="index_con_resultados.html">Oferta del d&iacute;a</a></li>
                 <li><a href="#">Noticias</a></li>
                 <li><a href="#">¿C&oacute;mo lo hacemos?</a></li>
                 <li><a href="#" class="last">Contacto</a></li>
@@ -55,62 +57,144 @@
 				  <div class="result-tittle">
 					 <p class="result-0">Mometasona</p><br>
 					 <p class="result-1">(Mometasona Furoato)</p><br>
-					 <p class="result-2">Crema</p><br>
-					 <p class="result-3">1%</p><br>
+					 <div id="menu-list">
+						<ul class="navi">
+							<li><a href="">Crema</a>
+								<ul>
+									<li><a href="">Spray Nasal</a></li>
+									<li><a href="">Tabletas</a></li>
+									<li><a href="">C&aacute;psulas</a></li>
+								</ul>
+							</li>
+						</ul>
+					 </div>			  
+					 <div id="menu-list">
+						<ul class="navi">
+							<li><a href="">1%</a>
+								<ul>
+									<li><a href="">2%</a></li>
+								</ul>
+							</li>
+						</ul>
+					 </div>		
 				  </div> 
 							
-		<div class="sort-bar">
-		<p class="sort-tittle">Ordenado por</p>	
-		<button class="sort-quality">Calidad</button>	
-		<button class="sort-price">Precio</button>	
-		<button class="sort-best">Mejor opci&oacute;n</button>	
-		</div>
+  
+				  <section class="section-title">Indicaciones</section>
+				  	<div class="plegable">
+  						 <p>La mometasona se usa para aliviar el prurito (picazón) y la inflamación (hinchazón) de numerosas afecciones a la piel.<br>
+						 Este medicamento también puede ser prescrito para otros usos; pídale más información a su doctor o farmacéutico.</p>
+				  	</div>
 				  
-				<button id="product-box" action="">
-					<p class="product-name">Mometasona Furoato</p>	
-					<p class="product-info">Crema 1% x 15 grs</p>	
-					<div class="star-3"></div>
-					<div class="price">$18.600</div>
-					<img src="img/laboratorios/mk.jpg" class="lab-logo" alt="mk" height="80" width="80">
-					<img src="img/distribuidores/san-jorge.jpg" class="dist-logo" alt="farmatodo" height="30" width="60">
-				</button>
-		  
-				<button id="product-box" action="">
-					<p class="product-name">Leaxin</p>	
-					<p class="product-info">Crema 1% x 15 grs</p>	
-					<div class="star-2"></div>
-					<div class="price">$37.500</div>
-					<img src="img/laboratorios/skindrug.jpg" class="lab-logo" alt="mk" height="80" width="80">
-					<img src="img/distribuidores/locatel.jpg" class="dist-logo" alt="farmatodo" height="30" width="60">
-				</button>
+				  <section class="section-title">Modo de uso</section>
+				  <div class="plegable">
+   						<p>La mometasona viene envasada en forma de crema tópica, ungüento y loción. Por lo general, se aplica externamente 1 vez al día. Siga cuidadosamente las instrucciones en la etiqueta del medicamento y pregúntele a su doctor o farmacéutico cualquier cosa que no entienda. Use el medicamento exactamente como se indica. No use más ni menos que la dosis indicada ni tampoco más seguido que lo prescrito por su doctor.<br>
+						Para usar la crema o el ungüento de mometasona, aplique una película delgada sobre la zona afectada 1 vez al día.<br>
+						Para aplicar la loción, coloque unas gotas en la zona afectada 1 vez al día y masajee suavemente hasta que desaparezca. Para ser más eficaz y económico, mantenga la boquilla del envase cerca de la zona afectada y oprima suavemente.</p>
+				  </div>
+
+				  <section class="section-title">Contraindicaciones y Advertencias</section>
+				  <div class="plegable">
+   						<p><strong>Antes de comenzar a usar mometasona:</strong><br>
+							· Dígale a su doctor y a su farmacéutico si usted es alérgico a la mometasona o a otros medicamentos.<br>
+							· Dígale a su doctor y a su farmacéutico qué medicamentos con y sin prescripción está tomando, incluyendo vitaminas.<br>
+							· Dígale a su doctor si usted tiene una infección o alguna vez ha tenido cataratas, glaucoma o diabetes.<br>
+							· Dígale a su doctor si está embarazada, tiene planes de quedar embarazada o si está amamantando. Si queda embarazada mientras toma este medicamento, llame a su doctor de inmediato.<br>
+							<br>
+							<strong>¿Qué tengo que hacer si me olvido de tomar una dosis?</strong><br>
+							Aplique la dosis que olvidó tan pronto como lo recuerde, sin embargo, si es hora para la siguiente, sáltese la que no aplicó y siga con la dosificación regular. No aplique una dosis doble para compensar la que olvidó.					  
+					  </p>
+				  </div>			
 				  
-				<button id="product-box" action="">
-					<p class="product-name">Momet Q</p>	
-					<p class="product-info">Crema 1% x 15 grs</p>	
-					<div class="star-5"></div>
-					<div class="price">$38.700</div>
-					<img src="img/laboratorios/galeno.jpg" class="lab-logo" alt="mk" height="80" width="80">
-					<img src="img/distribuidores/acuna.jpg" class="dist-logo" alt="farmatodo" height="30" width="60">
-				</button>
+				  <section class="section-title">Efectos secundarios</section>
+				  <div class="plegable">
+   						<p><strong>Aunque los efectos secundarios de este medicamento no son comunes, podrían llegar a presentarse. Dígale a su doctor si cualquiera de estos síntomas se vuelve severo o si no desaparece:</strong><br>
+						· Acné <br>
+						· Lesiones en la piel<br>
+						· Ardor<br>
+						· Prurito (picazón)<br>
+						· Irritación<br>
+						· Sequedad<br>
+						· Infección en la piel<br>
+						· Cambios en el color de la piel<br>
+						<br>	
+						<strong>Si usted experimenta alguno de los siguientes síntomas, llame a su doctor de inmediato:</strong><br>
+						· Infección en el área tratada (enrojecimiento, sensación de calor, o inflamación)<br>
+						· Pus en el área tratada<br>
+						· Empeoramiento del problema de la piel</p>
+				  </div>		
 				  
-				<button id="product-box" action="">
-					<p class="product-name">Furoato de Mometasona</p>	
-					<p class="product-info">Crema 1% x 15 grs</p>	
-					<div class="star-3"></div>
-					<div class="price">$18.945</div>
-					<img src="img/laboratorios/la-sante.jpg" class="lab-logo" alt="mk" height="80" width="80">
-					<img src="img/distribuidores/colsubsidio.jpg" class="dist-logo" alt="farmatodo" height="30" width="60">
-				</button>
+				  <section class="section-title">Otra información importante</section>
+				  <div class="plegable">
+   						<p>Cumpla con todas las citas con su doctor y el laboratorio. La afección de la piel debe ser supervisada para determinar la respuesta a la mometasona.<br>
+
+						No use mometasona en otras áreas que las indicadas por su doctor y no la use para otros problemas de la piel. No envuelva ni aplique vendas al área tratada a menos que sea indicado por su doctor.<br>
+
+						Si está administrando este medicamento en el área genital de los niños, no use pañales ni calzones plásticos ajustados. Este uso puede aumentar la absorción del medicamento a través de la piel y provocar efectos secundarios.<br>
+
+						No aplique cosméticos, lociones o productos de otro tipo para la piel en el área tratada sin conversar con su doctor.<br>
+
+						No deje que otras personas tomen su medicamento. Pregúntele al farmacéutico cualquier duda que tenga sobre cómo renovar la prescripción de su medicamento.<br>
+
+						Es importante que Ud. mantenga una lista escrita de todas las medicinas que Ud. está tomando, incluyendo las que recibió con receta médica y las que Ud. compró sin receta, incluyendo vitaminas y suplementos de dieta. Ud. debe tener la lista cada vez que visita su médico o cuando es admitido a un hospital. También es una información importante en casos de emergencia.<br></p>
+					  <div>.</div>
+				  </div>
 				  
-				<button id="product-box" action="">
-					<p class="product-name">Dermacortine Crema</p>	
-					<p class="product-info">Crema 1% x 15 grs</p>	
-					<div class="star-4"></div>
-					<div class="price">$36.585</div>
-					<img src="img/laboratorios/scandinavia.jpg" class="lab-logo" alt="mk" height="80" width="80">
-					<img src="img/distribuidores/sfarma.jpg" class="dist-logo" alt="farmatodo" height="30" width="60">
-				</button>
-				  
+				  <section class="section-title-product">Producto</section>
+						<div class="plegable-product">
+						  <div class="sort-bar">
+							<p class="sort-tittle">Ordenado por</p>	
+							<button class="sort-quality">Calidad</button>	
+							<button class="sort-price">Precio</button>	
+							<button class="sort-best">Mejor Opc.</button>	
+						  </div>
+
+						<button id="product-box" action="">
+							<p class="product-name">Mometasona Furoato</p>	
+							<p class="product-info">Crema 1% x 15 grs</p>	
+							<div class="star-3"></div>
+							<p class="distribuidor-text">Drog. San Jorge</p>	
+							<div class="price">$18.600</div>
+							<img src="img/laboratorios/mk.jpg" class="lab-logo" alt="mk" height="80" width="80">
+
+						</button>
+
+						<button id="product-box" action="">
+							<p class="product-name">Leaxin</p>	
+							<p class="product-info">Crema 1% x 15 grs</p>	
+							<div class="star-2"></div>
+							<p class="distribuidor-text">Locatel</p>	
+							<div class="price">$37.500</div>
+							<img src="img/laboratorios/skindrug.jpg" class="lab-logo" alt="mk" height="80" width="80">
+						</button>
+
+						<button id="product-box" action="">
+							<p class="product-name">Momet Q</p>	
+							<p class="product-info">Crema 1% x 15 grs</p>	
+							<div class="star-5"></div>
+							<p class="distribuidor-text">Drog. Acu&ntilde;a</p>	
+							<div class="price">$38.700</div>
+							<img src="img/laboratorios/galeno.jpg" class="lab-logo" alt="mk" height="80" width="80">
+						</button>
+
+						<button id="product-box" action="">
+							<p class="product-name">Furoato de Mometasona</p>	
+							<p class="product-info">Crema 1% x 15 grs</p>	
+							<div class="star-3"></div>
+							<p class="distribuidor-text">Drog. Colsubsidio</p>	
+							<div class="price">$18.945</div>
+							<img src="img/laboratorios/la-sante.jpg" class="lab-logo" alt="mk" height="80" width="80">
+						</button>
+
+						<button id="product-box" action="">
+							<p class="product-name">Dermacortine Crema</p>	
+							<p class="product-info">Crema 1% x 15 grs</p>	
+							<div class="star-4"></div>
+							<p class="distribuidor-text">Sfarma</p>	
+							<div class="price">$36.585</div>
+							<img src="img/laboratorios/scandinavia.jpg" class="lab-logo" alt="mk" height="80" width="80">
+						</button>
+				  </div>
 		<div class="transparent-bar"></div>
 
 			</div>		
