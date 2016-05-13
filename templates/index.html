@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Farmalium</title>
-    <!-- Bootstrap -->
+    <!-- Bootstrap. -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/queries.css">
@@ -31,7 +31,7 @@
             <ul class="clearfix">
                 <li><a href="index.html" class="active">Buscador</a></li>
                 <li><a href="resultado.html">Resultado</a></li>
-                <li><a href="index_con_resultados.html">Oferta del d&iacute;a</a></li>
+                <li><a href="#">Oferta del d&iacute;a</a></li>
                 <li><a href="#">Noticias</a></li>
                 <li><a href="#">¿C&oacute;mo lo hacemos?</a></li>
                 <li><a href="#" class="last">Contacto</a></li>
@@ -56,7 +56,7 @@
         <div class="container">	
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
-				  	<p class="tittle-text">Encuentra informaci&oacute;n de los mejores medicamentos, a los mejores precios</p>
+				  	<p class="tittle-text">Encuentra informaci&oacute;n de los mejores medicamentos, a los mejores precios.</p>
 				  	<div class="line-divider-2"></div>
 
 
@@ -67,9 +67,8 @@
 				  	 <div class="button-center">
 					   <input id="search" name="med" type="text" placeholder="escribe aquí" value="{{ consulta }}">
 					   <input id="submit" type="submit" class="search-btn" value=" ">
-						<div>
-							<p>Medicamentos encontrados:</p>
-      							<ul>
+						 <div id="result-bar">
+							 	<ul class="resul"> 
 								{% for n in my_list %}
 								<li>{{n}}</li>
 								{% endfor %}

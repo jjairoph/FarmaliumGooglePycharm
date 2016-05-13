@@ -124,8 +124,8 @@ class Consulta(webapp2.RequestHandler):
 
          cursor = db.cursor()
          query = 'Select distinct a.producto, a.descripcion_atc From invimacompletaexcel as a inner join ' \
-                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc and a.estado_cum <> %s order by 1'
-         cursor.execute(query, (consulta, 'Inactivo', ))
+                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc and a.estado_cum = %s order by 1'
+         cursor.execute(query, (consulta, 'Activo', ))
          my_list = []
          for r in cursor.fetchmany(200):
             my_list.append(r)
