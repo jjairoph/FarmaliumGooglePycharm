@@ -23,6 +23,9 @@ import logging
 
 CLOUDSQL_PROJECT = 'farmalium'
 CLOUDSQL_INSTANCE = 'farmalium_latin1'
+LOCALSQL_INSTANCE = 'farmalium_latin1'
+
+PASSWD_LOCAL = "farmalium2016"
 
 DEFAULT_QUERY = ''
 
@@ -64,11 +67,11 @@ class MainPage(webapp2.RequestHandler):
                 unix_socket='/cloudsql/farmalium:us-central1:farmalium'.format(
                     CLOUDSQL_PROJECT,
                     CLOUDSQL_INSTANCE),
-                user='root', passwd="elpdhsqep", db="farmalium_latin1")
+                user='root', passwd="elpdhsqep", db=CLOUDSQL_INSTANCE)
         # When running locally, you can either connect to a local running
         # MySQL instance, or connect to your Cloud SQL instance over TCP.
         else:
-            db = MySQLdb.connect(host='localhost', user='root', passwd="elpdhsqep", db="farmalium_latin1" )
+            db = MySQLdb.connect(host='localhost', user='root', passwd=PASSWD_LOCAL, db=LOCALSQL_INSTANCE )
 
         cursor = db.cursor()
         cursor.execute('select distinct producto from invimacompletaexcel order by 1')
@@ -98,48 +101,62 @@ class Consulta(webapp2.RequestHandler):
      #def post(self):
      def get(self):
          consulta = self.request.GET['med']
-         # We set the same parent key on the 'Greeting' to ensure each
-         # Greeting is in the same entity group. Queries across the
-         # single entity group will be consistent. However, the write
-         # rate to a single entity group should be limited to
-         # ~1/second.
-         #consulta = self.request.POST.items
-         #query_params = {'consulta': consulta}
-         #self.redirect('/?' + urllib.urlencode(query_params))
-         #self.response.write('es la consulta')
+         elquery = str(consulta)
+         elementos = []
+         elementos = elquery.split()
+         if len(elementos) > 0:
+            medicamento = elementos[0]
+            # We set the same parent key on the 'Greeting' to ensure each
+            # Greeting is in the same entity group. Queries across the
+            # single entity group will be consistent. However, the write
+            # rate to a single entity group should be limited to
+            # ~1/second.
+            #consulta = self.request.POST.items
+            #query_params = {'consulta': consulta}
+            #self.redirect('/?' + urllib.urlencode(query_params))
+            #self.response.write('es la consulta')
 
-         if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
-             db = MySQLdb.connect(
-                 unix_socket='/cloudsql/farmalium:us-central1:farmalium'.format(
-                     CLOUDSQL_PROJECT,
-                     CLOUDSQL_INSTANCE),
-                 user='root', passwd="elpdhsqep", db="farmalium_latin1")
-         # When running locally, you can either connect to a local running
-         # MySQL instance, or connect to your Cloud SQL instance over TCP.
+            if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
+                    db = MySQLdb.connect(
+                        unix_socket='/cloudsql/farmalium:us-central1:farmalium'.format(
+                        CLOUDSQL_PROJECT,
+                        CLOUDSQL_INSTANCE),
+                    user='root', passwd="elpdhsqep", db=CLOUDSQL_INSTANCE)
+            # When running locally, you can either connect to a local running
+            # MySQL instance, or connect to your Cloud SQL instance over TCP.
+            else:
+                    db = MySQLdb.connect(host='localhost', user='root', passwd=PASSWD_LOCAL, db=LOCALSQL_INSTANCE)
+
+            '#Validar que se enviaron parametros de consulta'
+            medicamento = '%' + medicamento + '%'
+            del elementos[0]  #Borrar nombre medicamento
+            estadoActivo = 'Activo'
+            filtro = '%'
+            if len(elementos) > 0:
+                for parametros in elementos:
+                    parametros = '%' + parametros + '%'
+                    filtro = filtro + parametros
+
+            cursor = db.cursor()
+            query = 'Select distinct a.producto, a.descripcion_atc From invimacompletaexcel as a inner join ' \
+                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc and a.estado_cum = %s and producto like %s order by 1'
+            cursor.execute(query, (medicamento, estadoActivo, filtro, ))
+            my_list = []
+            for r in cursor.fetchmany(200):
+                my_list.append(r)
+            #self.response.write('{}\n'.format(r))
+
+            template_values = {
+                'consulta': consulta,
+                'url_linktext': 'url_linktext',
+                'my_list': my_list
+            }
+            template = JINJA_ENVIRONMENT.get_template('/templates/index.html')
+            self.response.write(template.render(template_values))
+            #self.response.write(template.render(my_list))
+            # [END guestbook]
          else:
-             db = MySQLdb.connect(host='localhost', user='root', passwd="elpdhsqep", db="farmalium_latin1")
-
-         consulta.replace(" ", "%")
-         consulta = '%' + consulta + '%'
-
-         cursor = db.cursor()
-         query = 'Select distinct a.producto, a.descripcion_atc From invimacompletaexcel as a inner join ' \
-                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc and a.estado_cum = %s order by 1'
-         cursor.execute(query, (consulta, 'Activo', ))
-         my_list = []
-         for r in cursor.fetchmany(200):
-            my_list.append(r)
-         #self.response.write('{}\n'.format(r))
-
-         template_values = {
-             'consulta': consulta,
-             'url_linktext': 'url_linktext',
-             'my_list': my_list
-         }
-         template = JINJA_ENVIRONMENT.get_template('/templates/index.html')
-         self.response.write(template.render(template_values))
-         #self.response.write(template.render(my_list))
-         # [END guestbook]
+             '#Error no consulta nada'
 
 
 # [START app]
