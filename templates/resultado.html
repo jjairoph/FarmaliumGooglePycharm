@@ -22,19 +22,20 @@
     <!-- Fav icon -->
     <link rel="shortcut icon" href="favicon.ico">  
 	</head>
-  <body>
+  <body>	  
+
 		<header class="clearfix-bar clearfix-fixed-top">
-			  <div class="logo col-md-4" class="brand">
+			  <div class="logo col-md-4">
     	      	<img src="img/logo-farmalium.png"  alt="Logo Farmalium" width="223" height="68"/>
 	      	  </div>
 		    <nav class="clearfix">
             <ul class="clearfix">
-                <li><a href="index.html">Buscador</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="resultado.html" class="active">Resultado</a></li>
-                <li><a href="#">Oferta del d&iacute;a</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="#">¿C&oacute;mo lo hacemos?</a></li>
-                <li><a href="#" class="last">Contacto</a></li>
+                <li><a href="index_con_resultados.html">Farmalium recomienda</a></li>
+                <li><a href="#">Directorio de Droguer&iacute;as</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#" class="last">Iniciar sesi&oacute;n</a></li>
             </ul>
         </nav>
 
@@ -51,49 +52,90 @@
       <div class="overlay"></div><!-- End .pattern -->
      
 		<div id="home-content">
+			
+		<div class="container">
+            <div class="row2">
+              <div class="col-md-6 col-md-offset-3">
+                  <form class="searchbox" action="/consulta?search={{ consulta }}" method="get">
+					 <p class="search-title">Ingresa el nombre de tu medicamento</p>
+				  	 <div class="button-center">
+					   <input id="search" name="med" type="text" placeholder="escribe aquí" value="{{ consulta }}">
+					   <input id="submit" type="submit" class="search-btn" value=" ">
+						 <div id="result-bar">
+							 	<ul class="resul"> 
+								{% for n in my_list %}
+								<li>{{n}}</li>
+								{% endfor %}
+								</ul>
+						 </div>
+				  	 </div>
+				  </form>
+				</div>
+              </div><!-- End .row2 -->
+		</div>
+			
         <div class="container">	
-            <div class="row">
+			<div class="row3">
               <div class="col-md-6 col-md-offset-3">				 
 				  <div class="result-tittle">
-					 <p class="result-0">Mometasona</p><br>
-					 <p class="result-1">(Mometasona Furoato)</p><br>
-					 <div id="menu-list">
-						<ul class="navi">
-							<li><a href="">Crema</a>
+					 <p class="result-nombre">Mometasona</p><br>
+					 <p class="result-princ-act">(Mometasona Furoato)</p><br>
+					 <div id="result-list">
+						 <img src="img/icons/flecha-despliegue.png" class="result-arrow">
+						 <ul class="navi">
+							<li><a href="#">Crema</a>
 								<ul>
-									<li><a href="">Spray Nasal</a></li>
-									<li><a href="">Tabletas</a></li>
-									<li><a href="">C&aacute;psulas</a></li>
+									<li><a href="#">Spray Nasal</a></li>
+									<li><a href="#">Tabletas</a></li>
+									<li><a href="#">C&aacute;psulas</a></li>
 								</ul>
 							</li>
 						</ul>
 					 </div>			  
-					 <div id="menu-list">
-						<ul class="navi">
-							<li><a href="">1%</a>
+					 <div id="result-list">
+						 <img src="img/icons/flecha-despliegue.png" class="result-arrow">
+						 <ul class="navi">
+							<li><a href="#">1%</a>
 								<ul>
-									<li><a href="">2%</a></li>
+									<li><a href="#">2%</a></li>
+								</ul>
+							</li>
+						</ul>	 
+					 </div>	
+					 <div id="result-list-2">
+					 <img src="img/icons/flecha-despliegue.png" class="result-arrow">	 
+						<ul class="navi">
+							<li><a href="#">15g</a>
+								<ul>
+									<li><a href="#">30g</a></li>
+									<li><a href="#">50g</a></li>
 								</ul>
 							</li>
 						</ul>
-					 </div>		
+					 </div>					 
 				  </div> 
 							
   
-				  <section class="section-title">Indicaciones</section>
+				  <section class="section-title">Indicaciones
+					  <img class="masymenos-icons" src="img/icons/img_1.png" onclick="cambiar(this);">
+				  </section>
 				  	<div class="plegable">
   						 <p>La mometasona se usa para aliviar el prurito (picazón) y la inflamación (hinchazón) de numerosas afecciones a la piel.<br>
 						 Este medicamento también puede ser prescrito para otros usos; pídale más información a su doctor o farmacéutico.</p>
 				  	</div>
 				  
-				  <section class="section-title">Modo de uso</section>
+				  <section class="section-title">Modo de uso
+					  <img class="masymenos-icons" src="img/icons/img_1.png" onclick="cambiar(this);">
+				  </section>
 				  <div class="plegable">
    						<p>La mometasona viene envasada en forma de crema tópica, ungüento y loción. Por lo general, se aplica externamente 1 vez al día. Siga cuidadosamente las instrucciones en la etiqueta del medicamento y pregúntele a su doctor o farmacéutico cualquier cosa que no entienda. Use el medicamento exactamente como se indica. No use más ni menos que la dosis indicada ni tampoco más seguido que lo prescrito por su doctor.<br>
 						Para usar la crema o el ungüento de mometasona, aplique una película delgada sobre la zona afectada 1 vez al día.<br>
 						Para aplicar la loción, coloque unas gotas en la zona afectada 1 vez al día y masajee suavemente hasta que desaparezca. Para ser más eficaz y económico, mantenga la boquilla del envase cerca de la zona afectada y oprima suavemente.</p>
 				  </div>
 
-				  <section class="section-title">Contraindicaciones y Advertencias</section>
+				  <section class="section-title">Contraindicaciones y Advertencias
+					  <img class="masymenos-icons" src="img/icons/img_1.png" onclick="cambiar(this);">
+				  </section>
 				  <div class="plegable">
    						<p><strong>Antes de comenzar a usar mometasona:</strong><br>
 							· Dígale a su doctor y a su farmacéutico si usted es alérgico a la mometasona o a otros medicamentos.<br>
@@ -106,7 +148,9 @@
 					  </p>
 				  </div>			
 				  
-				  <section class="section-title">Efectos secundarios</section>
+				  <section class="section-title">Efectos secundarios
+					  <img class="masymenos-icons" src="img/icons/img_1.png" onclick="cambiar(this);">
+				  </section>
 				  <div class="plegable">
    						<p><strong>Aunque los efectos secundarios de este medicamento no son comunes, podrían llegar a presentarse. Dígale a su doctor si cualquiera de estos síntomas se vuelve severo o si no desaparece:</strong><br>
 						· Acné <br>
@@ -124,7 +168,9 @@
 						· Empeoramiento del problema de la piel</p>
 				  </div>		
 				  
-				  <section class="section-title">Otra información importante</section>
+				  <section class="section-title">Otra información importante
+					  <img class="masymenos-icons" src="img/icons/img_1.png" onclick="cambiar(this);">
+				  </section>
 				  <div class="plegable">
    						<p>Cumpla con todas las citas con su doctor y el laboratorio. La afección de la piel debe ser supervisada para determinar la respuesta a la mometasona.<br>
 
@@ -137,69 +183,79 @@
 						No deje que otras personas tomen su medicamento. Pregúntele al farmacéutico cualquier duda que tenga sobre cómo renovar la prescripción de su medicamento.<br>
 
 						Es importante que Ud. mantenga una lista escrita de todas las medicinas que Ud. está tomando, incluyendo las que recibió con receta médica y las que Ud. compró sin receta, incluyendo vitaminas y suplementos de dieta. Ud. debe tener la lista cada vez que visita su médico o cuando es admitido a un hospital. También es una información importante en casos de emergencia.<br></p>
-					  <div>.</div>
+					    <p><strong>La información del medicamento que se muestra en Farmalium es tomada de MedlinePlus. Para más información visite:</strong>
+					  	</p>
+					  	<a href="https://www.nlm.nih.gov/medlineplus/spanish/druginfo/meds/a687014-es.html">www.nlm.gov</a>
 				  </div>
 				  
-				  <section class="section-title-product">Producto</section>
-						<div class="plegable-product">
-						  <div class="sort-bar">
-							<p class="sort-tittle">Ordenado por</p>	
-							<button class="sort-quality">Calidad</button>	
-							<button class="sort-price">Precio</button>	
-							<button class="sort-best">Mejor Opc.</button>	
-						  </div>
-
+				  <section class="section-title-product">Productos
+					  <img class="masymenos-icons" src="img/icons/img_2.png" onclick="cambiar(this);">
+				  </section>
+					<div class="plegable-product">
+						<div class="product-space">
+						
 						<button id="product-box" action="">
 							<p class="product-name">Mometasona Furoato</p>	
-							<p class="product-info">Crema 1% x 15 grs</p>	
-							<div class="star-3"></div>
+							<p class="product-info">Crema 1% x 15 grs</p>
+							<p class="product-invima">INVIMA 2016M-00000</p>	
 							<p class="distribuidor-text">Drog. San Jorge</p>	
 							<div class="price">$18.600</div>
-							<img src="img/laboratorios/mk.jpg" class="lab-logo" alt="mk" height="80" width="80">
+							<img src="img/laboratorios/sin_logo.jpg" class="lab-logo" alt="sin-logo">
 
 						</button>
 
 						<button id="product-box" action="">
 							<p class="product-name">Leaxin</p>	
 							<p class="product-info">Crema 1% x 15 grs</p>	
-							<div class="star-2"></div>
+							<p class="product-invima">INVIMA 2016M-00000</p>	
 							<p class="distribuidor-text">Locatel</p>	
 							<div class="price">$37.500</div>
-							<img src="img/laboratorios/skindrug.jpg" class="lab-logo" alt="mk" height="80" width="80">
+							<img src="img/laboratorios/sin_logo.jpg" class="lab-logo" alt="sin-logo">
 						</button>
 
 						<button id="product-box" action="">
 							<p class="product-name">Momet Q</p>	
 							<p class="product-info">Crema 1% x 15 grs</p>	
-							<div class="star-5"></div>
+							<p class="product-invima">INVIMA 2016M-00000</p>	
 							<p class="distribuidor-text">Drog. Acu&ntilde;a</p>	
 							<div class="price">$38.700</div>
-							<img src="img/laboratorios/galeno.jpg" class="lab-logo" alt="mk" height="80" width="80">
+							<img src="img/laboratorios/galeno.jpg" class="lab-logo" alt="sin-logo">
 						</button>
 
 						<button id="product-box" action="">
 							<p class="product-name">Furoato de Mometasona</p>	
 							<p class="product-info">Crema 1% x 15 grs</p>	
-							<div class="star-3"></div>
+							<p class="product-invima">INVIMA 2016M-00000</p>	
 							<p class="distribuidor-text">Drog. Colsubsidio</p>	
 							<div class="price">$18.945</div>
-							<img src="img/laboratorios/la-sante.jpg" class="lab-logo" alt="mk" height="80" width="80">
+							<img src="img/laboratorios/sin_logo.jpg" class="lab-logo" alt="sin-logo">
 						</button>
 
 						<button id="product-box" action="">
 							<p class="product-name">Dermacortine Crema</p>	
-							<p class="product-info">Crema 1% x 15 grs</p>	
-							<div class="star-4"></div>
+							<p class="product-info">Crema 1% x 15 grs</p>
+							<p class="product-invima">INVIMA 2016M-00000</p>	
 							<p class="distribuidor-text">Sfarma</p>	
 							<div class="price">$36.585</div>
-							<img src="img/laboratorios/scandinavia.jpg" class="lab-logo" alt="mk" height="80" width="80">
+							<img src="img/laboratorios/scandinavia.jpg" class="lab-logo" alt="sin-logo">
 						</button>
+						
+					</div>	
 				  </div>
-		<div class="transparent-bar"></div>
 
 			</div>		
-		</div><!-- End .row -->
-      </div><!-- End .container -->
+            </div><!-- End .row -->
+			
+				<div class="social-icons  col-md-6 col-md-offset-3">
+					<button class="icon-social">
+						<img src="img/icons/fb-icon.png" href="#" alt="Facebook">
+					</button>
+					<button class="icon-social">
+						<img src="img/icons/twitter-icon.png" href="#" alt="Twitter">
+					</button>
+				</div>
+			
+            </div><!-- End .container -->
 	 </div><!-- End .home-content -->	  
 				  
 		
@@ -220,10 +276,8 @@
     <div class="container carousel">
       <div class="row">
 
-		  <div class="col-md-3"></div>
-
 		  
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
             <img src="img/noticias/laboratorio.jpg" alt="Carousel Img">
@@ -237,7 +291,7 @@
         </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
             <img src="img/noticias/pediatria.jpg" alt="Carousel Img">
@@ -250,8 +304,34 @@
           </div>
         </div>
         </div>
+		  
+        <div class="col-md-3 col-sm-6">
+        <div class="ca-hover">
+          <div class="carousel-img">
+            <img src="img/noticias/colesterol.jpg" alt="Carousel Img">
+          </div>
+          <div class="carousel-avatar av1">
+          </div>
+          <div class="carousel-content">
+            <h3>Desmontando la hipertensión: los médicos no saben cómo frenar la “epidemia silenciosa”</h3>
+            <p>La historia del tratamiento de la hipertensión es la de un tira y afloja entre médicos, investigadores e industria farmacéutica.</p>
+          </div>
+        </div>
+        </div>
 
-        <div class="col-md-3"></div>
+        <div class="col-md-3 col-sm-6">
+        <div class="ca-hover">
+          <div class="carousel-img">
+            <img src="img/noticias/alimentacion.jpg" alt="Carousel Img">
+          </div>
+          <div class="carousel-avatar av1">
+          </div>
+          <div class="carousel-content">
+            <h3>Guía dietética de <br>EE. UU. fija nuevas pautas alimenticias</h3>
+            <p>El agregado de azúcar en los alimentos debe representar menos del 10 por ciento de las calorías diarias, según una pauta dietética publicada hoy por el gobierno de Estados Unidos, que por primera vez fijó límites específicos en el consumo de dulces.</p>
+          </div>
+        </div>
+        </div>
 		  
 	</div>
 	</div>
@@ -270,9 +350,9 @@
           <div class="col-md-12">
           <div class="col-md-10 col-md-offset-1">
             <div class="quote-slideshow">
-              <figure class="show" ><h2>En Farmalium comparamos los precios de tu medicamento entre varias droguer&iacute;as on-line para ofrecerte la mejor opci&oacute;n al mejor precio.</h2>
+              <figure class="show"><p>En Farmalium comparamos los precios de tu medicamento entre varias droguer&iacute;as on-line para ofrecerte la mejor opci&oacute;n al mejor precio.</p>
               </figure>
-			  <figure><h2>Contamos con m&aacute;s de 20.000 productos registrados en nuestra base de datos y seguimos creciendo todos los d&iacute;as para facilitar y optimizar la compra de tus medicamentos.</h2>
+			  <figure><p>Contamos con m&aacute;s de 20.000 productos registrados en nuestra base de datos y seguimos creciendo todos los d&iacute;as para facilitar y optimizar la compra de tus medicamentos.</p>
               </figure>
             </div>
             </div>

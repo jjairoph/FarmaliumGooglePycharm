@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Farmalium</title>
-    <!-- Bootstrap. -->
+    <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/queries.css">
@@ -23,18 +23,19 @@
     <link rel="shortcut icon" href="favicon.ico">  
 	</head>
   <body>
+	  	  
 		<header class="clearfix-bar clearfix-fixed-top">
-			  <div class="logo col-md-4" class="brand">
+			  <div class="logo col-md-4">
     	      	<img src="img/logo-farmalium.png"  alt="Logo Farmalium" width="223" height="68"/>
 	      	  </div>
 		    <nav class="clearfix">
             <ul class="clearfix">
-                <li><a href="index.html" class="active">Buscador</a></li>
+                <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="resultado.html">Resultado</a></li>
-                <li><a href="#">Oferta del d&iacute;a</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="#">¿C&oacute;mo lo hacemos?</a></li>
-                <li><a href="#" class="last">Contacto</a></li>
+                <li><a href="index_con_resultados.html">Farmalium recomienda</a></li>
+                <li><a href="#">Directorio de Droguer&iacute;as</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#" class="last">Iniciar sesi&oacute;n</a></li>
             </ul>
         </nav>
 
@@ -50,18 +51,13 @@
       <div class="bg-parallax"></div><!-- End .bg-parallax -->
       <div class="overlay"></div><!-- End .pattern -->
      
-
 		
 		<div id="home-content">
         <div class="container">	
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
 				  	<p class="tittle-text">Encuentra informaci&oacute;n de los mejores medicamentos, a los mejores precios.</p>
-				  	<div class="line-divider-2"></div>
-
-
-
-
+				  
                   <form class="searchbox" action="/consulta?search={{ consulta }}" method="get">
 					 <p class="search-title">Ingresa el nombre de tu medicamento</p>
 				  	 <div class="button-center">
@@ -76,13 +72,18 @@
 						 </div>
 				  	 </div>
 				  </form>
-
-
-				 
-				  <div class="transparent-bar"></div>
 				</div>
-				
               </div><!-- End .row -->
+			
+				<div class="social-icons  col-md-6 col-md-offset-3">
+					<button class="icon-social">
+						<img src="img/icons/fb-icon.png" href="#" alt="Facebook">
+					</button>
+					<button class="icon-social">
+						<img src="img/icons/twitter-icon.png" href="#" alt="Twitter">
+					</button>
+				</div>
+			
             </div><!-- End .container -->
 		 </div><!-- End .home-content -->
 		
@@ -103,7 +104,7 @@
     <div class="container carousel">
       <div class="row">
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
             <img src="img/noticias/laboratorio.jpg" alt="Carousel Img">
@@ -117,7 +118,7 @@
         </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
             <img src="img/noticias/pediatria.jpg" alt="Carousel Img">
@@ -131,7 +132,7 @@
         </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
             <img src="img/noticias/colesterol.jpg" alt="Carousel Img">
@@ -145,7 +146,7 @@
         </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
             <img src="img/noticias/alimentacion.jpg" alt="Carousel Img">
@@ -176,9 +177,9 @@
           <div class="col-md-12">
           <div class="col-md-10 col-md-offset-1">
             <div class="quote-slideshow">
-              <figure class="show"><h2>Contamos con m&aacute;s de 20.000 productos registrados en nuestra base de datos y seguimos creciendo todos los d&iacute;as para facilitar y optimizar la compra de tus medicamentos.</h2>
+              <figure class="show"><p>Contamos con m&aacute;s de 20.000 productos registrados en nuestra base de datos y seguimos creciendo todos los d&iacute;as para facilitar y optimizar la compra de tus medicamentos.</p>
               </figure>
-              <figure><h2>Farmalium compara los precios de tu medicamento entre varios droguer&iacute;as on-line para ofrecerte la mejor opci&oacute;n al mejor precio.</h2>
+              <figure><p>Farmalium compara los precios de tu medicamento entre varios droguer&iacute;as on-line para ofrecerte la mejor opci&oacute;n al mejor precio.</p>
               </figure>
             </div>
             </div>

@@ -14,18 +14,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# -*- coding: latin-1 -*-
 import os
 import urllib
 import MySQLdb
 import webapp2
 import jinja2
 import logging
+#import pdb
+
+#pdb.set_trace()
 
 CLOUDSQL_PROJECT = 'farmalium'
 CLOUDSQL_INSTANCE = 'farmalium_latin1'
 LOCALSQL_INSTANCE = 'farmalium_latin1'
 
-PASSWD_LOCAL = "farmalium2016"
+#PASSWD_LOCAL = "farmalium2016"
+PASSWD_LOCAL = "elpdhsqep"
 
 DEFAULT_QUERY = ''
 
@@ -35,9 +40,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 
 def handle_404(request, response, exception):
+    direccion = request.path + request.url
     template_values = {
         'titulo': 'Pagina no encontrada!!!',
-        'mensaje': 'La pagina no existe',
+        'mensaje': direccion,
         'mensaje1': '404 pagina no existe',
     }
     logging.exception(exception)
@@ -46,13 +52,51 @@ def handle_404(request, response, exception):
     response.set_status(404)
 
 def handle_500(request, response, exception):
+    direccion = request.path
+    url = request.url
     logging.exception(exception)
-    response.write('A server error occurred!jjjj')
+    response.write('A server error occurred!jjjj' + direccion + url)
     response.set_status(500)
 
 
+class Resultado(webapp2.RequestHandler):
+    def get(self):
+        template_values = {
+            'consulta': 'consulta',
+            'url_linktext': 'url_linktext',
+        }
+        template = JINJA_ENVIRONMENT.get_template('/templates/resultado.html')
+        self.response.write(template.render(template_values))
+
+class FarmaliumRecomienda(webapp2.RequestHandler):
+    def get(self):
+        template_values = {
+            'consulta': 'consulta',
+            'url_linktext': 'url_linktext',
+        }
+        template = JINJA_ENVIRONMENT.get_template('/templates/index_con_resultados.html ')
+        self.response.write(template.render(template_values))
 
 
+class Resultado(webapp2.RequestHandler):
+    def get(self):
+        template_values = {
+            'greetings': 'greetings',
+            'url': 'url',
+            'url_linktext': 'url_linktext',
+        }
+        template = JINJA_ENVIRONMENT.get_template('/templates/resultado.html')
+        self.response.write(template.render(template_values))
+
+class IndexConResultado(webapp2.RequestHandler):
+    def get(self):
+        template_values = {
+            'greetings': 'greetings',
+            'url': 'url',
+            'url_linktext': 'url_linktext',
+        }
+        template = JINJA_ENVIRONMENT.get_template('/templates/index_con_resultados.html')
+        self.response.write(template.render(template_values))
 
 
 class MainPage(webapp2.RequestHandler):
@@ -130,7 +174,9 @@ class Consulta(webapp2.RequestHandler):
             '#Validar que se enviaron parametros de consulta'
             medicamento = '%' + medicamento + '%'
             del elementos[0]  #Borrar nombre medicamento
+            '#No mostrar muestras medicas ni inactivos'
             estadoActivo = 'Activo'
+            muestraMedica = 'No'
             filtro = '%'
             if len(elementos) > 0:
                 for parametros in elementos:
@@ -138,12 +184,17 @@ class Consulta(webapp2.RequestHandler):
                     filtro = filtro + parametros
 
             cursor = db.cursor()
-            query = 'Select distinct a.producto, a.descripcion_atc From invimacompletaexcel as a inner join ' \
-                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc and a.estado_cum = %s and producto like %s order by 1'
-            cursor.execute(query, (medicamento, estadoActivo, filtro, ))
+            query = 'Select distinct a.producto, a.descripcion_atc, a.forma_farmaceutica, a.cantidad_cuml, a.unidad From invimacompletaexcel as a inner join ' \
+                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc' \
+                    ' and a.estado_cum = %s and muestra_medica = %s and producto like %s order by 1'
+            cursor.execute(query, (medicamento, estadoActivo, muestraMedica, filtro, ))
             my_list = []
-            for r in cursor.fetchmany(200):
-                my_list.append(r)
+            #for r in cursor.fetchmany(200):
+            my_list = cursor.fetchmany(200)
+
+            #data = [[[1, 2, 3, 4], [2, 4, 5]], ["abc", "def"]]
+            #my_list = data
+
             #self.response.write('{}\n'.format(r))
 
             template_values = {
@@ -160,7 +211,7 @@ class Consulta(webapp2.RequestHandler):
 
 
 # [START app]
-app = webapp2.WSGIApplication([('/', MainPage),    ('/consulta*', Consulta)], debug=True)
+app = webapp2.WSGIApplication([('/', MainPage), ('/index.html', MainPage),   ('/consulta*', Consulta), (r'/resultado.html', Resultado), (r'/index_con_resultados.html', FarmaliumRecomienda)], debug=True)
 app.error_handlers[404] = handle_404
 app.error_handlers[500] = handle_500
 

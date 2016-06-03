@@ -17,18 +17,20 @@
     nav li {  
         width: 100%;  
         float: left;  
-        background-color: #242a2c; 
+        background-color: #373b40; 
         position: relative;
         text-align: center;
     }
     nav ul li a {  
         width: 100%;  
-        float: left;  
-        background-color: #242a2c; 
+        float: left; 
+		margin-left: 0px;
+		color: #dedede;
+        background-color: #373b40; 
         position: relative;
         padding: 25px 0; 
         text-align: center;
-        border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
     nav ul li a.last {  
         border-bottom: none;
@@ -54,6 +56,48 @@
     .pullcontainer a#pull {  
         display: block;  
         width: 100%;
-        color: #242a2c;   
-    }   
+        color: #424C59;   
+    }  
+	
+	
+	.lab-logo {
+		height: 50px;
+		width: 50px;
+	}
+	
+	.product-name {
+	margin: -12px 100px 0 60px;
+	line-height: 110%;
+	
+}
+
+  .product-info {
+	margin: 32px 0 0 60px;
+}
+
+  .product-invima {
+	margin: 52px 0 0 60px;
+}
+	
+  .distribuidor-text {
+	margin: 8px -2px 0 0;
+}
+
+  .price {
+	margin: 23px -80px 0 0;
+}
+	
+.search-title {
+	font-size: 11px;
+	width: 90%;
+	}
+	
+#search {
+	width: 90%;
+	}
+	
+.resul {
+	width: 91%;
+	}	
+	
 }  
