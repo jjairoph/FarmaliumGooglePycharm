@@ -184,10 +184,10 @@ class Consulta(webapp2.RequestHandler):
                     filtro = filtro + parametros
 
             cursor = db.cursor()
-            query = 'Select distinct a.producto, a.descripcion_atc, a.forma_farmaceutica, a.cantidad_cuml, a.unidad From invimacompletaexcel as a inner join ' \
-                 '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc' \
+            query = 'Select distinct a.producto, a.descripcion_atc From invimacompletaexcel as a inner join ' \
+                    '(SELECT distinct descripcion_atc FROM invimacompletaexcel where producto like %s ) as b on a.descripcion_atc = b.descripcion_atc' \
                     ' and a.estado_cum = %s and muestra_medica = %s and producto like %s order by 1'
-            cursor.execute(query, (medicamento, estadoActivo, muestraMedica, filtro, ))
+            cursor.execute(query, (medicamento, estadoActivo, muestraMedica, filtro,))
             my_list = []
             #for r in cursor.fetchmany(200):
             my_list = cursor.fetchmany(200)
