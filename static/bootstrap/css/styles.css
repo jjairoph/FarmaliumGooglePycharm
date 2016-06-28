@@ -123,6 +123,7 @@ a:focus {
 a:active,
 a:hover {
     outline: 0;
+    color: #00b0ad
 }
  
 /* ==========================================================================
@@ -557,18 +558,18 @@ h2.logo-text {
     text-align: right;
 	font-family: 'Helvetica', Helvetica, Arial, sans-serif;
     height: 68px;
-    background-color: #424C59;
+    background-color: #31426a;
     position: relative;
     color: #fff;
 }
 .brand {
     float: left;
-	background-color: #44b8ba;
+	background-color: #00b0ad;
 	position: relative;
 	height: 68px;
 }
 .logo-bg {
-    background-color: #44b8ba;
+    background-color: #00b0ad;
     position: absolute;
     left:0px;
     top: 0px;
@@ -592,7 +593,7 @@ nav ul li a {
     padding: 25px 10px 23px 5px;
 	margin-left: 20px;
     text-transform: uppercase;
-    color: #424C59;
+    color: #31426a;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -603,10 +604,10 @@ nav ul li a {
 }
 nav ul li a:hover {
     text-decoration: none;
-    color: #44b8ba;
+    color: #00b0ad;
 }
 nav ul li a.active {
-    color: #44b8ba;
+    color: #00b0ad;
 }
 
 .arrow {
@@ -659,16 +660,16 @@ nav ul li a.active {
     right: 15px;
     top: 0px;
     opacity: 0;
-    border: solid 5px #44b8ba;
+    border: solid 5px #00b0ad;
 }
 .overlay:hover {
     opacity: 1;
 }
 .ca-hover:hover .carousel-content h3 {
-    color: #44b8ba;
+    color: #00b0ad;
 }
 .ca-hover:hover .carousel-content p {
-    color: #44b8ba;
+    color: #00b0ad;
 }
 .carousel-img img {
     width: 100%;
@@ -709,7 +710,7 @@ nav ul li a.active {
     border-top: solid 1px #e3e3e3;
 }
 .button.solid-color {
-    background-color: #44b8ba;
+    background-color: #00b0ad;
     padding: 15px 40px;
     border-radius: 3px;
     font-weight: 600;
@@ -737,7 +738,7 @@ nav ul li a.active {
     height: 25px;
 }
 .h2-wrap {
-    background-color: #44b8ba;
+    background-color: #00b0ad;
     padding: 5px 0;
 }
 .standard-block {
@@ -834,7 +835,7 @@ figcaption a{
 color: #fff;
 }
 .quote-container {
-    background-color: #44b8ba;
+    background-color: #00b0ad;
     padding: 50px 0;
 }
 .quote-slideshow {
@@ -842,9 +843,11 @@ color: #fff;
 }
 .quote-slideshow h2 {
     color: #fff;
-    font-size: 30px;
+   	text-align: center;
+    font-size: 23px;
     font-weight: 200;
     font-style: italic;
+    padding: 0 10px 0 10px;
 }
 .circle {
     background-color: rgba(0,0,0,0.1);
@@ -858,7 +861,7 @@ color: #fff;
 }
 .shadow{
     height: 10px;
-    background-color: #3fa2a3;
+    background-color: #01918f;
 }
 footer {
     background-color: #242a2c;
@@ -1035,7 +1038,7 @@ footer h2 {
 }
 
 .search-title {
-    background-color: #44b8ba;
+    background-color: #00b0ad;
     margin: 0px 0px 0px 0px;
     color: #fff;
     padding: 2px 40px 0px 0px;
@@ -1049,7 +1052,7 @@ footer h2 {
     background-color: rgba(255, 255, 255, 0.90);
     color: #242a2c;
     margin: 0px 0px 30px;
-    border: solid 3px #44b8ba;
+    border: solid 3px #00b0ad;
     font-size: 28px;
     font-weight: 600;
 	text-align: left;
@@ -1074,7 +1077,7 @@ footer h2 {
 	margin-top: 100px;
 	margin-bottom: 20px;
 	padding: 3px 3px 3px;
-	background-color: rgba(66, 76, 89, 0.8);
+	background-color: rgba(49, 66, 106, 0.9);
 	color: white;
 	text-align: center;
     font: normal 20px 'open sans', arial, helvetica;
@@ -1118,8 +1121,8 @@ footer h2 {
 	padding: 2px;
 	width: 100%;
 	height: 25px;
-	background-color: rgba(15, 25, 28, 0.7);
-    border: solid 2px #44b8ba;
+	background-color: rgba(49, 66, 106, 0.7);
+    border: solid 2px #00b0ad;
 	color: #fff;
 	text-align: center;
     font: normal 13px 'open sans', arial, helvetica;
@@ -1128,7 +1131,7 @@ footer h2 {
 .sort-quality {
 	padding: 3px;
 	border: none;
-	background-color: rgba(15, 25, 28, 0.7);
+	background-color: rgba(49, 66, 106, 0.7);
 	width: 33%;
 	color: white;
 	text-align: center;
@@ -1142,7 +1145,7 @@ footer h2 {
 	margin-right: 1%;
 	padding: 3px;
 	border: none;
-	background-color: rgba(15, 25, 28, 0.7);
+	background-color: rgba(49, 66, 106, 0.7);
 	width: 32%;
 	color: white;
 	text-align: center;
@@ -1152,7 +1155,7 @@ footer h2 {
 .sort-best {
 	padding: 3px;
 	border: none;
-	background-color: rgba(15, 25, 28, 0.7);
+	background-color: rgba(49, 66, 106, 0.7);
 	width: 33%;
 	color: white;
 	text-align: center;
@@ -1167,10 +1170,10 @@ footer h2 {
 
 #result-list {
 	position: relative;
-	z-index: 1;
+	z-index: 3;
 	padding: -10px;
     margin: -20px 0px 0px;
-	background-color: rgba(66, 76, 89, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
     border: solid 1px #fff;
 	text-align: center;	
 	float: left;
@@ -1181,13 +1184,13 @@ footer h2 {
 
 #result-list-2 {
 	position: relative;
-	z-index: 1;
+	z-index: 3;
 	padding: -10px;
     margin: -20px 0px 0px;
-	background-color: rgba(45, 52, 62, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
     border: solid 1px #fff;
 	text-align: center;	
-	float: left;
+	float: right;
     width: 34%;
 	height: 23px;
     font: bold 14px 'open sans', arial, helvetica;
@@ -1205,12 +1208,12 @@ footer h2 {
 }
 			
 .navi li a:hover {
-	background-color: #373b40;
+	background-color: rgba(30, 40, 65, 0.9);
 }
 			
 .navi li ul {
 	display:none;
-	background-color: rgba(66, 76, 89, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
 	position:relative;
 	min-width:50%;
 	margin-top: 0px;
@@ -1284,7 +1287,7 @@ footer h2 {
 
 .result-nombre{
 	position: relative;
-	background-color: rgba(66, 76, 89, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
     margin: 0px 0px 0px;
 	text-transform: uppercase;
 	color: white;
@@ -1297,7 +1300,7 @@ footer h2 {
 .result-princ-act{
 	position: relative;
     margin: -20px 0px 0px;
-	background-color: rgba(66, 76, 89, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
     border: solid 1px #fff;
 	color: white;
 	text-align: center;
@@ -1307,7 +1310,7 @@ footer h2 {
 
 .result-btn-2{
 	position: relative;
-	background-color: rgba(66, 76, 89, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
     margin: 0px 0px 0px;
 	text-transform: uppercase;
 	color: white;
@@ -1332,7 +1335,7 @@ footer h2 {
 #product-box {
 	position: relative;
     background-color: rgba(255, 255, 255, 0.90);
-    border: solid 3px #44b8ba;
+    border: solid 3px #00b0ad;
     margin: 5px 0px 0px 0px;
     width: 98%;
 	height: 95px;
@@ -1350,7 +1353,7 @@ footer h2 {
 
   .product-name {
 	position: absolute;
-	color: #4a5050;
+	color: #1e2841;
 	margin: 3px 100px 0 85px;
     font: bold 20px 'open sans', arial, helvetica;
 	text-align: left;
@@ -1359,14 +1362,14 @@ footer h2 {
 }
 
   .product-info {
-	color: #44b8ba;
+	color: #00b0ad;
 	position: absolute;
 	margin: 45px 0 0 85px;
     font: normal 15px 'open sans', arial, helvetica;
 }
 
   .product-invima {
-	color: #4a5050;
+	color: #1e2841;
 	position: absolute;
 	margin: 65px 0 0 85px;
     font: normal 12px 'open sans', arial, helvetica;
@@ -1374,24 +1377,24 @@ footer h2 {
 
   .distribuidor-text {
 	position: relative;
-	background-color: rgba(66, 76, 89, 0.8);
+	background-color: rgba(49, 66, 106, 0.8);
 	margin: 21px -2px 0 0;
 	color: white;
 	float: right;
 	text-align: center;  
-	width: 80px;
+	width: 85px;
 	height: 15px;
     font: normal 10px 'open sans', arial, helvetica;
 }
 
   .price {
 	position: relative;
-	background-color: #44b8ba;
-	margin: 36px -80px 0 0;
+	background-color: #00b0ad;
+	margin: 36px -85px 0 0;
 	color: white;
 	float: right;
 	text-align: center;  
-	width: 80px;
+	width: 85px;
 	height: 25px;
     font: normal 18px 'open sans', arial, helvetica;
 
@@ -1402,7 +1405,7 @@ footer h2 {
 /*===================================================================================*/
 
 footer {
-  background-color: #222222;
+  background-color: #1e2841;
   padding: 12px 0;
   position: relative; }
   footer a {
@@ -1412,8 +1415,16 @@ footer {
 
 .footer-text {
 	text-align: center;
+	color: rgb(127, 138, 165);
 }	
 	
+.term {
+    margin-bottom: 10px;
+}
+
+.term a {
+    font: normal 14px 'open sans', arial, helvetica;
+}
 
 /*===================================================================================*/
 /*  INFORMACIÓN EN PESTAÑAS DESPLEGABLES                                                                    */
@@ -1432,32 +1443,65 @@ footer {
 }
 
 .section-title {
-    background-color: #44b8ba;
+    background-color: #00b0ad;
 	border: solid 1px #fff;
-    color: #fff;
 	height: 30px;
+	width: 100%;
+    padding: 2px 2px 2px;
+	z-index: 1;
+}
+
+.section-title-2 {
+    background-color: none;
+	border: none;
+    color: #fff;
 	width: 100%;
 	text-align: center;
     padding: 2px 2px 2px;
-	font: normal 17px 'open sans', arial, helvetica;
+	font: normal 16px 'open sans', arial, helvetica;
+	position: absolute;
+	z-index: 1;
+	margin-top: 0px;
+	margin-left: -20px;
 }
 
 .section-title-product {
-	background-color: rgba(66, 76, 89, 0.9);
+	background-color: rgba(49, 66, 106, 0.9);
 	border: solid 1px #fff;
-    color: #fff;
 	height: 30px;
 	width: 100%;
-	text-align: center;
     padding: 2px 2px 2px;
-	font: normal 17px 'open sans', arial, helvetica;
 	position: relative;
 	z-index: 1;
 }
 
+.section-title-product-2 {
+	background-color: none;
+	border: none;
+    color: #fff;
+	width: 100%;
+	text-align: center;
+    padding: 2px 2px 2px;
+	font: normal 16px 'open sans', arial, helvetica;
+	position: absolute;
+	z-index: 1;
+	margin-top: 0px;
+}
+
+.masymenos-icons-2 {
+	position: relative;
+    z-index: 2;
+    height: 25px;
+    width: 300px;
+	float: right;
+	background-color: none;
+	border: none;
+
+}
+
 .masymenos-icons {
 	position: relative;
-	z-index: 0;
+    z-index: 2;
     height: 25px;
     width: 25px;
 	float: right;
@@ -1485,16 +1529,68 @@ footer {
 	margin-left: -7px;
 }
 
+
+/*===================================================================================*/
+/*  ERROR 404                                                                   */
+/*===================================================================================*/
+
+.error-title{
+	position: relative;
+    color: #fff;
+	border: solid 2px #fff;
+    height: 120px;
+    background-color: #31426a;
+	text-align: center;
+	font: normal 18px 'open sans', arial, helvetica;
+    margin-top: 50px;
+	padding-top: 15px;
+	z-index: 1;
+}
+.text-error{
+	position: relative;
+    color: #fff;
+	border: solid 2px #fff;
+    background-color: #00b0ad;
+    text-align: center;
+	font: normal 14px 'open sans', arial, helvetica;
+    margin-top: -90px;
+	padding-top: 80px;
+	z-index: 1;
+
+}
+
+.error-text{
+    color: #fff;
+    text-align: center;
+	font: normal 18px 'open sans', arial, helvetica;
+    padding: 0 20px 10px 20px;
+}
+
+.error-text a{
+    color: rgba(49, 66, 106, 0.9);
+	font: bold 18px 'open sans', arial, helvetica;
+}
+.error-text a:hover{
+    color: #31426a;
+}
+
+.error-lupa{
+	position: relative;
+	margin-top: -80px;
+	z-index: 2;
+}
+
+.centrado{
+	text-align: center;
+}
+
+
+
 /*===================================================================================*/
 /*  VARIOS                                                                    */
 /*===================================================================================*/
 
-.show {
-	text-align: center;
-	color: #fff;
-	font: italic 22px 'open sans', arial, helvetica;
-}	
+
 
 .img {cursor:pointer;}
-
 
