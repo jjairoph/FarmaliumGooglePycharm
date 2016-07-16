@@ -118,6 +118,8 @@ $(".animateBoth").bind("click", function(e){
 
 
 
+
+
 	// Array con todas las imágenes que deseamos que se vayan cambiando a
 	// cada clic
 	var imagenes=Array("img/icons/img_1.png","img/icons/img_2.png");
@@ -152,4 +154,42 @@ $(".animateBoth").bind("click", function(e){
 	window.onload=function() {
 		cargarSiguienteImagen();
 	}
+
+	
+/**
+* CAMBIAR TAMAÑO DE TEXTOS
+*/	
+
+$(document).ready(function(){
+  
+  // Donde queremos cambiar el tamaño de la fuente
+  var donde = $('.mitexto');
+  var sizeFuenteOriginal = donde.css('font-size');
+  
+  // Resetear Font Size
+  $(".normalF").click(function(){
+  donde.css('font-size', sizeFuenteOriginal);
+  });
+ 
+  // Aumentar Font Size
+  $(".masF").click(function(){
+  	var sizeFuenteActual = donde.css('font-size');
+ 	var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 8);
+    var sizeFuenteNuevo = sizeFuenteActualNum*1.2;
+	donde.css('font-size', sizeFuenteNuevo);
+	return false;
+  });
+ 
+  // Disminuir Font Size
+  $(".menosF").click(function(){
+  	var sizeFuenteActual = donde.css('font-size');
+ 	var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 8);
+    var sizeFuenteNuevo = sizeFuenteActualNum*0.8;
+	donde.css('font-size', sizeFuenteNuevo);
+	return false;
+  });
+  
+});
+
+
 

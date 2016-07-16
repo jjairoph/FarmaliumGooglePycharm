@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
     <title>Farmalium</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/queries.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -26,16 +26,16 @@
 
 		<header class="clearfix-bar clearfix-fixed-top">
 			  <div class="logo col-md-4">
-    	      	<img src="img/logo-farmalium.png"  alt="Logo Farmalium" width="223" height="68"/>
-	      	  </div>
+    	      	<button type="button" onclick="location.href='index.html';" class="logo-btn"><img src="img/logo-farmalium.png"  alt="Logo Farmalium" width="223" height="68"/></button>
+			  </div>  
 		    <nav class="clearfix">
             <ul class="clearfix">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="resultado.html" class="active">Resultado</a></li>
-                <li><a href="index_con_resultados.html">Farmalium recomienda</a></li>
-                <li><a href="error.html">Directorio de Droguer&iacute;as</a></li>
+                <li><a href="noticias.html">Farmalium recomienda</a></li>
+                <li><a href="error.html">Aprende +</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#" class="last">Iniciar sesi&oacute;n</a></li>
+                <li><a href="login.html" class="last">Iniciar sesi&oacute;n</a></li>
             </ul>
         </nav>
 
@@ -55,11 +55,11 @@
 			
 		<div class="container">
             <div class="row2">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-xs-12 col-md-6 col-md-offset-3">
                   <form class="searchbox" action="/consulta?search={{ consulta }}" method="get">
 					 <p class="search-title">Ingresa el nombre de tu medicamento</p>
 				  	 <div class="button-center">
-					   <input id="search" name="med" type="text" placeholder="escribe aquí" value="{{ consulta }}">
+					   <input id="search" name="med" type="text" placeholder="Ej: Acetaminofén 500 mg" value="{{ consulta }}">
 					   <input id="submit" type="submit" class="search-btn" value=" ">
 						 <div id="result-bar">
 							 	<ul class="resul"> 
@@ -76,7 +76,7 @@
 			
         <div class="container">	
 			<div class="row3">
-              <div class="col-md-6 col-md-offset-3">				 
+              <div class="col-xs-12 col-md-6 col-md-offset-3">
 				  <div class="result-tittle">
 					 <p class="result-nombre">Leaxin</p><br>
 					 <p class="result-princ-act">Furoato de Mometasona</p><br>
@@ -269,8 +269,8 @@
 
 			</div>		
             </div><!-- End .row -->
-			
-				<div class="social-icons  col-md-6 col-md-offset-3">
+
+				<div class="social-icons  col-xs-12 col-md-6 col-md-offset-3">
 					<button class="icon-social">
 						<img src="img/icons/fb-icon.png" href="#" alt="Facebook">
 					</button>
@@ -296,21 +296,37 @@
 	  
 	  
 	  
-	  
     <div class="container carousel">
       <div class="row">
 
-		  
         <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/noticias/laboratorio.jpg" alt="Carousel Img">
+            <img src="img/noticias/precios_medicamentos.jpg" alt="Carousel Img">
           </div>
-          <div class="carousel-avatar av1">
-          </div>
+          <button type="button" onclick="location.href='noticias/innovavion_precios_medicamentos_y_desarrollo_26-05-2016.html';" class="carousel-lupa">
+          </button>
           <div class="carousel-content">
-            <h3>Incautan más de 300 tipos de medicamentos vencidos y reempacados en Cali</h3>
-            <p>Las autoridades recomendaron llevar los farmacéuticos vencidos hasta centros asistenciales, donde los recopilan para su posterior destrucción</p>
+            <h3>Innovaci&oacute;n, precios de medicamentos y desarrollo</h3>
+			<div class="nota-fecha">Mayo 26 de 2016</div>
+			<p>Colombia ha definido la salud como un derecho humano fundamental, lo que significa, en esencia, que el acceso a los servicios de salud y a los medicamentos esenciales es una obligación del Estado y una cuestión de justicia y dignidad humana.</p>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+        <div class="ca-hover">
+          <div class="carousel-video">
+				<div class="contenedor">
+					<iframe src="https://www.youtube.com/embed/eLoPiovf3So" frameborder="0" allowfullscreen></iframe>
+				</div>	
+			</div>
+          <button type="button" onclick="location.href='error.html';" class="carousel-lupa">
+          </button>
+          <div class="carousel-content">
+            <h3>Lo que deber&iacute;as saber acerca del virus del Zika</h3>
+			<div class="nota-fecha">Marzo 25 de 2016</div>
+            <p>Se considera que una de cada cuatro personas infectadas desarrolla los s&iacute;ntomas de la enfermedad. En quienes los desarrollan, la enfermedad es usualmente leve y puede durar de entre 2 y 7 días. Los s&iacute;ntomas son similares a los del dengue o del chikungunya, que tambi&eacute;n son transmitidas por el mismo tipo de mosquito.</p>
           </div>
         </div>
         </div>
@@ -318,27 +334,14 @@
         <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/noticias/pediatria.jpg" alt="Carousel Img">
+            <img src="img/noticias/guerra-genericos.jpg" alt="Carousel Img">
           </div>
-          <div class="carousel-avatar av1">
-          </div>
+          <button type="button" onclick="location.href='error.html';" class="carousel-lupa">
+          </button>
           <div class="carousel-content">
-            <h3>Piden medicamentos para ni&ntilde;os con VIH</h3>
-            <p>En la XV Conferencia Internacional sobre el Sida, que termina hoy en Bangkok (Tailandia), la organización mundial Médicos Sin Fronteras hizo un llamado al mundo para que obligue a las empresas farmacéuticas a producir medicamentos en presentaciones pediátricas..</p>
-          </div>
-        </div>
-        </div>
-		  
-        <div class="col-md-3 col-sm-6">
-        <div class="ca-hover">
-          <div class="carousel-img">
-            <img src="img/noticias/colesterol.jpg" alt="Carousel Img">
-          </div>
-          <div class="carousel-avatar av1">
-          </div>
-          <div class="carousel-content">
-            <h3>Desmontando la hipertensión: los médicos no saben cómo frenar la “epidemia silenciosa”</h3>
-            <p>La historia del tratamiento de la hipertensión es la de un tira y afloja entre médicos, investigadores e industria farmacéutica.</p>
+            <h3>Nueva guerra contra los gen&eacute;ricos</h3>
+			<div class="nota-fecha">Junio 9 de 2016</div>
+            <p>Este proyecto de ley no tiene futuro y no preocupa. Pero s&iacute; hay que preocuparse por la tenaz persistencia de prejuicios que contradicen las evidencias y la l&oacute;gica.</p>
           </div>
         </div>
         </div>
@@ -346,13 +349,14 @@
         <div class="col-md-3 col-sm-6">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/noticias/alimentacion.jpg" alt="Carousel Img">
+            <img src="img/noticias/medicamentos-interes-publico.jpg" alt="Carousel Img">
           </div>
-          <div class="carousel-avatar av1">
-          </div>
+          <button type="button" onclick="location.href='error.html';" class="carousel-lupa">
+          </button>
           <div class="carousel-content">
-            <h3>Guía dietética de <br>EE. UU. fija nuevas pautas alimenticias</h3>
-            <p>El agregado de azúcar en los alimentos debe representar menos del 10 por ciento de las calorías diarias, según una pauta dietética publicada hoy por el gobierno de Estados Unidos, que por primera vez fijó límites específicos en el consumo de dulces.</p>
+            <h3>Medicamentos, de inter&eacute;s p&uacute;blico</h3>
+			<div class="nota-fecha">Mayo 1 de 2016</div>
+            <p>Por primera vez en Colombia un medicamento es declarado de inter&eacute;s público. Pero todos los medicamentos en general deben ser de inter&eacute;s p&uacute;blico, pues no es conveniente que se discriminen las patolog&iacute;as y, as&iacute; mismo, la calidad de los medicamentos: el mismo dolor que siente una persona de escasos recursos lo siente el adinerado.</p>
           </div>
         </div>
         </div>

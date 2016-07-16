@@ -14,13 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# -*- coding: latin-1 -*-
+
+# -*- coding: utf-8 -*-
 import os
 import urllib
 import MySQLdb
 import webapp2
 import jinja2
 import logging
+import json
+import collections
 #import pdb
 
 #pdb.set_trace()
@@ -78,13 +81,13 @@ class Resultado(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('/templates/resultado.html')
         self.response.write(template.render(template_values))
 
-class FarmaliumRecomienda(webapp2.RequestHandler):
+class Registro(webapp2.RequestHandler):
     def get(self):
         template_values = {
             'consulta': 'consulta',
             'url_linktext': 'url_linktext',
         }
-        template = JINJA_ENVIRONMENT.get_template('/templates/index_con_resultados.html ')
+        template = JINJA_ENVIRONMENT.get_template('/templates/registro.html ')
         self.response.write(template.render(template_values))
 
 
@@ -97,6 +100,19 @@ class Resultado(webapp2.RequestHandler):
         }
         template = JINJA_ENVIRONMENT.get_template('/templates/resultado.html')
         self.response.write(template.render(template_values))
+
+
+class Login(webapp2.RequestHandler):
+    def get(self):
+        template_values = {
+            'greetings': 'greetings',
+            'url': 'url',
+            'url_linktext': 'url_linktext',
+        }
+        template = JINJA_ENVIRONMENT.get_template('/templates/login.html')
+        self.response.write(template.render(template_values))
+
+
 
 class IndexConResultado(webapp2.RequestHandler):
     def get(self):
@@ -194,7 +210,7 @@ class Consulta(webapp2.RequestHandler):
                     filtro = filtro + parametros
 
             cursor = db.cursor()
-            query = 'Select distinct a.producto_nuevo, a.descripcion_atc_unido From pharmallium.invima_depu as a inner join ' \
+            query = 'Select distinct a.producto_nuevo From pharmallium.invima_depu as a inner join ' \
                     '(SELECT distinct descripcion_atc_unido FROM pharmallium.invima_depu where producto_nuevo like %s ) as b on a.descripcion_atc_unido = b.descripcion_atc_unido' \
                     ' and producto_nuevo like %s order by 1'
                     #' and a.estado_cum = %s and muestra_medica = %s ' \
@@ -223,8 +239,101 @@ class Consulta(webapp2.RequestHandler):
              '#Error no consulta nada'
 
 
+class ConsultaAjax(webapp2.RequestHandler):
+             # def post(self):
+             def get(self):
+                 consulta = self.request.GET['term']
+                 elquery = str(consulta)
+                 elementos = []
+                 elementos = elquery.split()
+                 if len(elementos) > 0:
+                     medicamento = elementos[0]
+                     # We set the same parent key on the 'Greeting' to ensure each
+                     # Greeting is in the same entity group. Queries across the
+                     # single entity group will be consistent. However, the write
+                     # rate to a single entity group should be limited to
+                     # ~1/second.
+                     # consulta = self.request.POST.items
+                     # query_params = {'consulta': consulta}
+                     # self.redirect('/?' + urllib.urlencode(query_params))
+                     # self.response.write('es la consulta')
+
+                     if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
+                         db = MySQLdb.connect(
+                             unix_socket='/cloudsql/pharmallium:us-central1:db'.format(
+                                 CLOUDSQL_PROJECT,
+                                 CLOUDSQL_INSTANCE),
+                             user='root', passwd="chelin1974", db=CLOUDSQL_INSTANCE)
+                     # When running locally, you can either connect to a local running
+                     # MySQL instance, or connect to your Cloud SQL instance over TCP.
+                     else:
+                         db = MySQLdb.connect(host='localhost', user='root', passwd=PASSWD_LOCAL, db=LOCALSQL_INSTANCE)
+
+                     '#Validar que se enviaron parametros de consulta'
+                     medicamento = '%' + medicamento + '%'
+                     del elementos[0]  # Borrar nombre medicamento
+                     '#No mostrar muestras medicas ni inactivos'
+                     estadoActivo = 'Activo'
+                     muestraMedica = 'No'
+                     filtro = '%'
+                     if len(elementos) > 0:
+                         for parametros in elementos:
+                             parametros = '%' + parametros + '%'
+                             filtro = filtro + parametros
+                     else:
+                        filtro = medicamento
+
+                     cursor = db.cursor()
+                     query = 'Select distinct a.producto_nuevo, a.registro_sanitario, a.expediente_cum as ident From pharmallium.invima_depu as a inner join ' \
+                             '(SELECT distinct descripcion_atc_unido FROM pharmallium.invima_depu where producto_nuevo like %s ) as b on a.descripcion_atc_unido = b.descripcion_atc_unido' \
+                             ' and producto_nuevo like %s order by 1'
+                     # ' and a.estado_cum = %s and muestra_medica = %s ' \
+
+                     # cursor.execute(query, (medicamento, estadoActivo, muestraMedica, filtro,))
+                     cursor.execute(query, (medicamento, filtro,))
+                     my_list = []
+                     rowarray_list = []
+                     # for r in cursor.fetchmany(200):
+                     rows = cursor.fetchall()
+
+                     for row in rows:
+                         d = collections.OrderedDict()
+                         d['id'] = row[2]
+                         d['value '] = row[1]
+                         d['label'] = row[0]
+                         rowarray_list.append(d)
+
+                     j = json.dumps(rowarray_list, ensure_ascii=False)
+
+
+                     # data = [[[1, 2, 3, 4], [2, 4, 5]], ["abc", "def"]]
+                     # my_list = data
+
+                     # self.response.write('{}\n'.format(r))
+
+                     template_values = {
+                         'consulta': consulta,
+                         'url_linktext': 'url_linktext',
+                         'my_list': my_list
+                     }
+                     #template = JINJA_ENVIRONMENT.get_template('/templates/index.html')
+                     #self.response.write(template.render(template_values))
+                     # self.response.write(template.render(my_list))
+                     # [END guestbook]
+
+                     self.response.headers['Content-Type'] = 'application/json'
+                     self.response.out.write(j.decode('utf-8', 'ignore'))
+                     #self.response.write(jason)
+
+
+
+
+                 else:
+                     '#Error no consulta nada'
+
+
 # [START app]
-app = webapp2.WSGIApplication([('/', MainPage), ('/index.html', MainPage),   ('/consulta*', Consulta), (r'/resultado.html', Resultado), (r'/index_con_resultados.html', FarmaliumRecomienda)], debug=True)
+app = webapp2.WSGIApplication([('/', MainPage), ('/index.html', MainPage),   ('/consulta*', Consulta), (r'/queryajax', ConsultaAjax), (r'/resultado.html', Resultado), (r'/registro.html', Registro), (r'/login.html', Login)], debug=True)
 app.error_handlers[404] = handle_404
 app.error_handlers[500] = handle_500
 

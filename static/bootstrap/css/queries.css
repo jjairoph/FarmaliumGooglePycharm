@@ -38,7 +38,11 @@
     .laptop-placeholder img {
         max-width: 80%;
     }
+	
+	
 }  
+
+
 
 @media only screen and (max-width : 1200px) {  
     nav {  
@@ -59,6 +63,11 @@
         color: #31426a;   
     }  
 	
+	
+	
+.carousel-3 {
+    margin-top: -15px;
+}	
 	
 .lab-logo {
 		height: 50px;
@@ -114,6 +123,51 @@
 	margin: 23px -65px 0 0;
 }	
 	
+.tittle-text {
+	margin-top: 75px;
+	margin-bottom: 13px;
+    font: normal 15px 'open sans', arial, helvetica;
+}
 	
-}  
+.green-space-login, .green-space-registro{
+	display: none;
+	}	
+	
+.ejm-text{
+    font: normal 10px 'open sans', arial, helvetica;
+}
 
+.noticia-title {	
+	font-size: 60%;
+}
+
+.noticia-img{
+	height: 100px;
+}
+	
+.noticia-img-hijo{
+	margin-top: -70px;
+}
+	
+.conten-text p2{
+    font: normal 13px 'open sans', arial, helvetica;
+}
+	
+.noticia-subtitle h2{	
+    font: italic 14px 'open sans', arial, helvetica;
+}
+	
+.compartir_count {
+    border-radius: 3px;
+    margin-right: 8px;
+	margin-top: 7px;
+    padding: 1px 2px;
+    font: normal 10px 'open sans', arial, helvetica;
+}
+	
+	
+	
+	
+	
+} 
+	

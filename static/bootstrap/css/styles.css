@@ -137,8 +137,8 @@ a:hover {
  */
  
 h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+    font-size: 2.5em;
+    margin: 0.37em 0;
 }
  
 h2 {
@@ -209,7 +209,7 @@ mark {
  * Addresses margins set differently in IE 6/7.
  */
  
-p,
+p, p2,
 pre {
     margin: 1em 0;
 }
@@ -562,6 +562,11 @@ h2.logo-text {
     position: relative;
     color: #fff;
 }
+.logo-btn {
+	background: none;
+	border: none;
+}
+
 .brand {
     float: left;
 	background-color: #00b0ad;
@@ -621,23 +626,9 @@ nav ul li a.active {
     position: relative;
 }
 
-.carousel {
-    text-align: center;
-    margin-top: 40px;
-}
-.av1 {
-    height: 70px;
-    width: 70px;
-    background: url(../img/noticias/lupa.png) no-repeat;
-    background-position:  0px 0px;
-    margin: -45px auto;
-    position: relative;
-}
-.ca-hover:hover .av1 {
-    background: url(../img/noticias/lupa.png) no-repeat;
-    background-position:  0px -70px;
 
-}
+
+
 .carousel-content {
     text-align: left;
     padding: 10px 25px;
@@ -646,7 +637,7 @@ nav ul li a.active {
 .carousel-content h3, .text-inter h3 {
     color: #737c85;
     font-size: 21px;
-    padding-top: 40px;
+    margin-top: 0px;
 }
 .carousel-content p, .text-inter p {
     color: #929da5;
@@ -665,15 +656,7 @@ nav ul li a.active {
 .overlay:hover {
     opacity: 1;
 }
-.ca-hover:hover .carousel-content h3 {
-    color: #00b0ad;
-}
-.ca-hover:hover .carousel-content p {
-    color: #00b0ad;
-}
-.carousel-img img {
-    width: 100%;
-}
+
 .controls {
     margin: 20px;
     text-align: center;
@@ -1076,12 +1059,18 @@ footer h2 {
 .tittle-text {
 	margin-top: 100px;
 	margin-bottom: 20px;
-	padding: 3px 3px 3px;
+	padding: 4px 4px 4px;
 	background-color: rgba(49, 66, 106, 0.9);
 	color: white;
 	text-align: center;
     font: normal 20px 'open sans', arial, helvetica;
 }
+
+.ejm-text{
+    font: normal 16px 'open sans', arial, helvetica;
+}
+
+
 
 /*===================================================================================*/
 /*  BOTON DE BUSQUEDA                                                                     */
@@ -1105,62 +1094,6 @@ footer h2 {
 
 .button-center {
 	text-align: center;
-}
-
-
-/*===================================================================================*/
-/*  ORDENADO POR                                                                    */
-/*===================================================================================*/
-
-.sort-bar {
-	margin-bottom: none;
-}
-
-.sort-tittle {
-	margin: 0px 0 0 0;
-	padding: 2px;
-	width: 100%;
-	height: 25px;
-	background-color: rgba(49, 66, 106, 0.7);
-    border: solid 2px #00b0ad;
-	color: #fff;
-	text-align: center;
-    font: normal 13px 'open sans', arial, helvetica;
-}
-
-.sort-quality {
-	padding: 3px;
-	border: none;
-	background-color: rgba(49, 66, 106, 0.7);
-	width: 33%;
-	color: white;
-	text-align: center;
-	float: left;
-    font: bold 14px 'open sans', arial, helvetica;
-}
-
-.sort-price {
-	margin: 0 auto;
-	margin-left: 1%;
-	margin-right: 1%;
-	padding: 3px;
-	border: none;
-	background-color: rgba(49, 66, 106, 0.7);
-	width: 32%;
-	color: white;
-	text-align: center;
-    font: bold 14px 'open sans', arial, helvetica;
-}
-
-.sort-best {
-	padding: 3px;
-	border: none;
-	background-color: rgba(49, 66, 106, 0.7);
-	width: 33%;
-	color: white;
-	text-align: center;
-	float: right;
-    font: bold 14px 'open sans', arial, helvetica;
 }
 
 
@@ -1253,7 +1186,7 @@ footer h2 {
 	float: left;
 	width: 96%;
     margin: -33px 0px 50px 0px;
-
+    font: normal 10px 'open sans', arial, helvetica;
 }
 
 .resul li {
@@ -1267,7 +1200,6 @@ footer h2 {
     width: 94%;
     font: normal 12px 'open sans', arial, helvetica;
 	position: relative;
-
 }
 
 
@@ -1470,7 +1402,7 @@ footer {
 	border: solid 1px #fff;
 	height: 30px;
 	width: 100%;
-    padding: 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
 	position: relative;
 	z-index: 1;
 }
@@ -1481,7 +1413,7 @@ footer {
     color: #fff;
 	width: 100%;
 	text-align: center;
-    padding: 2px 2px 2px;
+    padding: 1px 1px 1px 1px;
 	font: normal 16px 'open sans', arial, helvetica;
 	position: absolute;
 	z-index: 1;
@@ -1491,7 +1423,7 @@ footer {
 .masymenos-icons-2 {
 	position: relative;
     z-index: 2;
-    height: 25px;
+    height: 27px;
     width: 300px;
 	float: right;
 	background-color: none;
@@ -1502,31 +1434,9 @@ footer {
 .masymenos-icons {
 	position: relative;
     z-index: 2;
-    height: 25px;
+    height: 27px;
     width: 25px;
 	float: right;
-}
-
-
-/*===================================================================================*/
-/*  REDES SOCIALES                                                                   */
-/*===================================================================================*/
-
-.fb-like{
-	margin-right: 7px;
-}
-
-.social-icons {
-	position: relative;
-	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 50px;
-}
-
-.icon-social{
-	background-color: transparent;
-	border: none;
-	margin-left: -7px;
 }
 
 
@@ -1553,7 +1463,7 @@ footer {
     background-color: #00b0ad;
     text-align: center;
 	font: normal 14px 'open sans', arial, helvetica;
-    margin-top: -90px;
+    margin-top: -96px;
 	padding-top: 80px;
 	z-index: 1;
 
@@ -1576,8 +1486,16 @@ footer {
 
 .error-lupa{
 	position: relative;
-	margin-top: -80px;
+	margin-top: -93px;
 	z-index: 2;
+}
+
+.error-name{
+	position: relative;
+	margin-top: -40px;
+	z-index: 3;
+	color: #fff;
+	font: bold 22px 'open sans', arial, helvetica;
 }
 
 .centrado{
@@ -1587,10 +1505,452 @@ footer {
 
 
 /*===================================================================================*/
-/*  VARIOS                                                                    */
+/*  LOGIN                                                                    */
+/*===================================================================================*/
+
+.login-box{
+	height: 180px;
+    background-color: rgba(0, 176, 173, 0.8);
+	position: relative;
+	text-align: center;
+	padding: 20px;
+	margin-top: -10px;
+}
+
+.user-text{
+	border: none;
+	width: 280px;
+	padding: 9px;
+	margin: 2px;
+	font: normal 14px 'open sans', arial, helvetica;
+}
+
+.pass-text{
+	border: none;
+	width: 280px;
+	padding: 9px;
+	margin: 2px;
+	font: normal 14px 'open sans', arial, helvetica;
+}
+
+.input-login{
+	color: #fff;
+    background-color: #31426a;
+	border: solid 1px #fff;
+	font: normal 14px 'open sans', arial, helvetica;
+	width: 280px;
+	padding: 9px;
+	margin: 2px;
+}
+
+.input-login:hover{
+    background-color: rgba(30, 40, 65, 0.9);
+}
+
+.register-box{
+	height: 60px;
+    background-color: rgba(0, 176, 173, 0.8);
+	position: relative;
+	text-align: center;
+	padding: 20px;
+	margin-top: 5px;
+	margin-bottom: 70px;
+}
+
+.register-box-2{
+	height: 310px;
+    background-color: rgba(0, 176, 173, 0.8);
+	position: relative;
+	text-align: center;
+	padding: 9px;
+	margin-top: -10px;
+	margin-bottom: 50px;
+}
+
+.btn-registro{
+	color: #fff;
+    background-color: #31426a;
+	border: solid 1px #fff;
+	font: normal 14px 'open sans', arial, helvetica;
+	width: 280px;
+	padding: 9px;
+	margin-top: -9px;
+}
+
+.btn-registro:hover{
+    background-color: rgba(30, 40, 65, 0.9);
+}
+
+.pass-forget a{
+	text-align: center;
+	color: #fff;
+	width: 280px;
+	padding: 9px;
+	margin: 1px;
+	font: normal 14px 'open sans', arial, helvetica;
+	width: 280px;
+}
+
+.pass-forget a:hover{
+	color: #fff;
+}
+
+.city-list{
+	border: none;
+	width: 280px;
+	height: 40px;
+	padding: 9px;
+	margin: 2px;
+	font: normal 14px 'open sans', arial, helvetica;
+}
+
+/*===================================================================================*/
+/*  WELCOME                                                                   */
+/*===================================================================================*/
+
+.welcome-box{
+	margin-top: 100px;
+	margin-bottom: 20px;
+	padding: 4px 4px 4px;
+    background-color: rgba(49, 66, 106, 0.9);
+	text-align: center;
+}
+
+.welcome-text{
+	padding: 4px 4px 4px;
+	color: white;
+	text-align: center;
+    font: normal 20px 'open sans', arial, helvetica;
+	margin-top: 5px;
+}
+
+.welcome-name{
+	padding: 4px 4px 4px;
+	color: #fff;
+	text-align: center;
+    font: normal 35px 'open sans', arial, helvetica;
+	margin-top: -20px;
+}
+
+.welcome-text-2{
+	padding: 4px 4px 4px;
+	color: white;
+	text-align: center;
+    font: normal 20px 'open sans', arial, helvetica;
+	margin-top: -30px;
+}
+
+/*===================================================================================*/
+/* NOTICIAS                                                                   */
 /*===================================================================================*/
 
 
 
+.nota-fecha{
+	text-align: left;
+	font: normal 11px 'open sans', arial, helvetica;
+	margin-top: -15px;
+	margin-bottom: -10px;
+	color: #929da5;
+}
+
+.nota-fecha-2{
+	text-align: left;
+	font: normal 11px 'open sans', arial, helvetica;
+	margin-top: -5px;
+	margin-bottom: -10px;
+	color: #929da5;
+}
+
+/* para videos de youtube */
+.contenedor{
+    height:0px;
+    width:100%;
+    padding-top:56.25%; /* Relación: 16/9 = 56.25% */
+    position:relative;
+	margin-top: 5px;}
+
+.contenedor iframe{
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+}
+
+.carousel {
+    text-align: center;
+    margin-top: 20px;
+}
+.carousel-2 {
+    text-align: center;
+    margin-top: 0px;
+}
+.carousel-3 {
+    text-align: center;
+    margin-top: -5px;
+}
+.carousel-4 {
+	position: relative;
+    text-align: center;
+    margin-top: -5px;
+}
+
+
+.ca-hover:hover .av1{
+    background: url(../img/noticias/lupa.png) no-repeat;
+    background-position:  0px -70px;
+
+}
+.carousel-lupa {
+    height: 70px;
+    width: 70px;
+    background: url(../img/noticias/lupa.png) no-repeat;
+    background-position:  0px 0px;
+	border: none;
+    margin: -30px auto;
+	position: relative;
+}
+.ca-hover:hover .carousel-lupa{
+    background: url(../img/noticias/lupa.png) no-repeat;
+    background-position:  0px -70px;
+
+}
+.ca-hover:hover .carousel-content h3 {
+    color: #00b0ad;
+}
+.ca-hover:hover .carousel-content p {
+    color: #00b0ad;
+}
+.carousel-img img {
+    width: 100%;
+	margin-top: 5px;
+}
+
+article {
+  width:/*la necesaria*/;
+  margin: 2rem auto;/*no influye*/
+  margin-top: 0px;
+}
+article p {
+  max-height: 7.5rem;/*line-height por nº de líneas*/
+  overflow: hidden;
+  text-align: justify; 
+}
+article a{
+  float: left;
+  color: #00b0ad;
+  margin-top: -5px;
+}
+article a:hover{
+  color: #31426a;
+}
+
+.conten-text {
+	text-align: justify;
+}
+
+.conten-text p2{
+	margin-top: 100px;
+    font: normal 14px 'open sans', arial, helvetica;
+}
+
+.conten-text a{
+  color: #00b0ad;
+}
+.conten-text a:hover{
+  color: #31426a;
+}
+
+.noticia-content{
+	text-align: left;
+}
+
+.noticia-title {	
+	font-size: 100%;
+	margin-top: -5px;
+}
+
+.noticia-subtitle h2{	
+	margin-top: -10px;
+	text-align: justify;
+	font-size: 100%;
+	color: #00b0ad;
+    font: italic 16px 'open sans', arial, helvetica;
+}
+
+.noticia-img{
+	margin: 15px 0;
+	width: 100%;
+	height: 150px;
+	overflow:hidden; /* this is important */
+	position:relative; /* this is important too */
+}
+
+noticia-img img{
+	position: absolute;
+
+}
+
+.noticia-img-hijo{
+	max-width: 100%;
+	margin-top: -150px;
+}
+
+.botones-tamano {
+	position: relative;
+	text-align: left;
+	z-index: 0;
+}
+
+.normalF, .menosF, .masF {
+	width: 30px;
+	height: 30px;
+	color: #fff;
+	border: none;
+	background-color: #00b0ad;
+	font: bold 18px 'open sans', arial, helvetica;
+	margin-right: 0px;
+}
+
+.share-btn {
+	text-align: right;
+	margin-top: -30px;
+}
+
+.compartir {
+    display: inline-block;
+	position: relative;
+	z-index: 2;
+}
+
+.facebook_hcount{
+	background: url(../img/icons/facebook-share.png) no-repeat scroll left top transparent;
+	width: 32px;
+	height: 32px;
+	margin-right: 3px;
+	border: none;
+} 
+
+.twitter_hcount{
+	background: url(../img/icons/twitter-share.png) no-repeat scroll left top transparent;
+	width: 32px;
+	height: 32px;
+	margin-right: 3px;
+	border: none;
+} 
+
+.googleplus_hcount{
+	background: url(../img/icons/googleplus-share.png) no-repeat scroll left top transparent;
+	width: 32px;
+	height: 32px;
+	margin-right: 3px;
+	border: none;
+} 
+
+.compartir_count {
+    position: relative;
+    float: left;
+    border: solid 1px #a5b1bd;
+    border-radius: 3px;
+    margin-right: 7px;
+	margin-top: 5px;
+    padding: 2px 7px;
+    color: #424a4d;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    font: normal 12px 'open sans', arial, helvetica;
+}
+
+.compartir_count:before, .compartir_count:after {
+    position: absolute;
+    top: 46%;
+    display: block;
+    content: '';
+    height: 0;
+    right: -14px;
+    width: 0;
+    margin-top: -6px;
+}
+
+.compartir_count:before {
+    border: solid 7px transparent;
+    border-color: transparent transparent transparent #a5b1bd;
+}
+
+.compartir_count:after {
+    border: solid 6px transparent;
+    border-color: transparent transparent transparent #fff;
+    right: -12px;
+    margin-top: -5px;
+}
+
+
+/*===================================================================================*/
+/*  REDES SOCIALES                                                                   */
+/*===================================================================================*/
+
+.fb-like{
+	margin-right: 7px;
+}
+
+.social-icons {
+	position: relative;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.icon-social{
+	background-color: transparent;
+	border: none;
+	margin-left: -7px;
+}
+
+
+
+/*===================================================================================*/
+/*  ADDS                                                                    */
+/*===================================================================================*/
+
+
+.add-image {
+	width: 100%;
+	height: auto;
+	margin: 10px 0;
+}
+
+.add-image img{
+	width: 100%;
+}
+
+
+/*===================================================================================*/
+/*  VARIOS                                                                    */
+/*===================================================================================*/
+
+
 .img {cursor:pointer;}
+
+.blanc-space{
+	height: 50px;
+}
+
+.noticia-space{
+	height: 90px;
+}
+
+.green-space-registro{
+	height: 70px;
+	background-color: #fff;
+}
+
+.green-space-login{
+	height: 115px;
+	background-color: #fff;
+}
+
+
 
